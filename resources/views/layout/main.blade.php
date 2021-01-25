@@ -9,31 +9,31 @@
 
     <!-- SITE TITLE -->
     <title>Emeet</title>
-    <meta name="description" content="Responsive Emeet HTML Template"/>
-    <meta name="keywords" content="Bootstrap3, Event,  Conference, Meetup, Template, Responsive, HTML5"/>
-    <meta name="author" content="themearth.com"/>
+    <meta name="description" content="Ilmiy konferensiyalar, tezislar va maqolalar"/>
+    <meta name="keywords" content="Ilmiy konferensiyalar, tezislar, maqolalar"/>
+    <meta name="author" content="conferences-list.uz"/>
 
-    <!-- twitter card starts from here, if you don't need remove this section -->
+    <!-- twitter card starts from here, if you don't need remove this section -->{{--
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@yourtwitterusername"/>
+    <meta name="twitter:site" content="@yourtwitterusername"/>--}}{{--
     <meta name="twitter:creator" content="@yourtwitterusername"/>
     <meta name="twitter:url" content="http://yourdomain.com/"/>
     <meta name="twitter:title" content="Your home page title, max 140 char"/>
     <!-- maximum 140 char -->
     <meta name="twitter:description" content="Your site description, maximum 140 char "/>
     <!-- maximum 140 char -->
-    <meta name="twitter:image" content="assets/img/twittercardimg/twittercard-280-150.jpg"/>
+    <meta name="twitter:image" content="assets/img/twittercardimg/twittercard-280-150.jpg"/>--}}
     <!-- when you post this page url in twitter , this image will be shown -->
     <!-- twitter card ends from here -->
 
     <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
-    <meta property="og:title" content="Your home page title"/>
-    <meta property="og:url" content="http://your domain here.com"/>
-    <meta property="og:locale" content="en_US"/>
-    <meta property="og:site_name" content="Your site name here"/>
+    <meta property="og:title" content="Ilmiy konferensiyalar, tezislar va maqolalar"/>
+    <meta property="og:url" content="https://conferences-list.uz"/>
+    <meta property="og:locale" content="uz-UZ"/>
+    <meta property="og:site_name" content="Konferensiyalar"/>
     <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="assets/img/opengraph/fbphoto.jpg"/>
+    {{--<meta property="og:image" content="assets/img/opengraph/fbphoto.jpg"/>--}}
     <!-- when you post this page url in facebook , this image will be shown -->
     <!-- facebook open graph ends from here -->
 
@@ -109,7 +109,7 @@
                             </button>
                             <div class="lgx-logo">
                                 <a href="/" class="lgx-scroll">
-                                    <img src="assets/img/logo.png" alt="Emeet Logo"/>
+                                    <img src="{{ asset('assets/img/logo.png') }}" alt="Emeet Logo"/>
                                 </a>
                             </div>
                         </div>
