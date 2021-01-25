@@ -32,6 +32,7 @@ class Request extends Model implements Transformable
         'note_client',
         'authors',
         'subject',
+        'file',
         'answer_text'
     ];
 
