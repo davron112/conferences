@@ -120,7 +120,6 @@
                                 </div>
                             </div>
                             <ul class="nav navbar-nav lgx-nav navbar-right">
-                                <li><a class="lgx-scroll" href="#lgx-speakers">Bosh sahifa</a></li>
                                 <li><a class="lgx-scroll" href="#lgx-speakers">Ishtirokchilar</a></li>
                                 <li><a class="lgx-scroll" href="#lgx-schedule">Konferensiya jadvali</a></li>
                                 <li><a class="lgx-scroll" href="#lgx-sponsors">Homiylar</a></li>

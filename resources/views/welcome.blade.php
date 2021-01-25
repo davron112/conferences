@@ -114,11 +114,12 @@
                                         <li>2.	Ta'lim tizimlarida axborot texnologiyalari;</li>
                                         <li>3.	Axborot xizmatlarini ko'rsatish sohasida intellektual tizimlar;</li>
                                         <li>4.	Telekommunikatsiya tarmoqlari va tizimlarining rivojlanishi;</li>
-                                        <li>5.	Raqamli televideniya va  kino industriyasi muammolari;</li>
-                                        <li>6.	Axborot xavfsizligining zamonaviy muammolari;</li>
-                                        <li>7.	 Dasturiy  mahsulotlarni yaratish va uning istiqbollari;</li>
-                                        <li>8.	Elektron kutubxonalar va arxivlar;</li>
-                                        <li>9.	Raqamli iqtisodiyot.</li>
+                                        <li>5.	Radiotexnika, teleradioeshittirish va mobil aloqa texnologiyalari</li>
+                                        <li>6.	Raqamli televideniya va  kino industriyasi muammolari;</li>
+                                        <li>7.	Axborot xavfsizligining zamonaviy muammolari;</li>
+                                        <li>8.	 Dasturiy  mahsulotlarni yaratish va uning istiqbollari;</li>
+                                        <li>9.	Elektron kutubxonalar va arxivlar;</li>
+                                        <li>10.	Raqamli iqtisodiyot.</li>
 
                                     </ul>
                                     <div class="section-btn-area">
