@@ -51,15 +51,16 @@
                                         <p>&nbsp;</p>
                                         <p>Анжуман қуйидаги йўналишлар бўйича&nbsp; фаолият юритади:</p>
                                         <ol>
-                                            <li>Республика ижтимоий-иқтисодий масалаларини ечишда АКТ аҳамияти;</li>
-                                            <li>Таълим тизимларида ахборот технологиялари;</li>
-                                            <li>Ахборот хизматларини кўрсатиш соҳасида интеллектуал тизимлар;</li>
-                                            <li>Телекоммуникация тармоқлари ва тизимларининг ривожланиши;</li>
-                                            <li>Рақамли телевидения ва кино индустрияси муаммолари;</li>
-                                            <li>Ахборот хавфсизлигининг замонавий муаммолари;</li>
-                                            <li>Дастурий&nbsp; маҳсулотларни яратиш ва унинг истиқболлари;</li>
-                                            <li>Электрон кутубхоналар ва архивлар;</li>
-                                            <li>Рақамли иқтисодиёт.</li>
+                                            <li>1.	Respublika ijtimoiy-iqtisodiy masalalarini yechishda AKT ahamiyati;</li>
+                                            <li>2.	Ta'lim tizimlarida axborot texnologiyalari;</li>
+                                            <li>3.	Axborot xizmatlarini ko'rsatish sohasida intellektual tizimlar;</li>
+                                            <li>4.	Telekommunikatsiya tarmoqlari va tizimlarining rivojlanishi;</li>
+                                            <li>5.	Radiotexnika, teleradioeshittirish va mobil aloqa texnologiyalari</li>
+                                            <li>6.	Raqamli televideniya va  kino industriyasi muammolari;</li>
+                                            <li>7.	Axborot xavfsizligining zamonaviy muammolari;</li>
+                                            <li>8.	 Dasturiy  mahsulotlarni yaratish va uning istiqbollari;</li>
+                                            <li>9.	Elektron kutubxonalar va arxivlar;</li>
+                                            <li>10.	Raqamli iqtisodiyot.</li>
                                         </ol>
 
                                     </div>
