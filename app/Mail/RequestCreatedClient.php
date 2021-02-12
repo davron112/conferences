@@ -31,7 +31,7 @@ class RequestCreatedClient extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('Conferences-list.uz - konferensiyalar')
+            ->subject('Conferences-list.uz - Maqola #' . $this->requestModel->id)
             ->view('emails.request.client', ['requestModel' => $this->requestModel]);
     }
 }
