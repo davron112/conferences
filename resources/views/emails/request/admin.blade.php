@@ -5,11 +5,12 @@
 </head>
 <body>
 
-<h1>Yangi maqola kelib tushdi</h1>
-<p>Ishtirokchi FIO:</p>
+<h1>Sizning seksiyangizga yangi maqola kelib tushdi</h1>
 <ul>
+    <li>№: #{{ $requestModel->id }}</li>
     <li>FIO: {{ $requestModel->username }}</li>
     <li>Email: {{ $requestModel->email }}</li>
+    <li>Foydalanuvchi xabari: {{ $requestModel->note_client }}</li>
     <li>Mualliflar: {{ $requestModel->authors }}</li>
     <li>Yo'nalish: {{ $requestModel->category->name }}</li>
     <li>Mavzu: {{ $requestModel->subject }}</li>
