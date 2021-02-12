@@ -14,7 +14,7 @@
     <li>Yo'nalish: {{ $requestModel->category->name }}</li>
     <li>Mavzu: {{ $requestModel->subject }}</li>
     <li>To'lov statusi: {{ $requestModel->payment_status }}</li>
-    <li>Fayl: <a href="{{ $requestModel->file }}">{{ $requestModel->file }}</a></li>
+    <li>Fayl: <a href="https://conferences-list.uz/storage/{{ $requestModel->file }}">https://conferences-list.uz/storage/{{ $requestModel->file }}</a></li>
 </ul>
 </body>
 </html>
