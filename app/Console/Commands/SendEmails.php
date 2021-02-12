@@ -51,7 +51,7 @@ class SendEmails extends Command
                 $statusChanged = true;
                 $item->send_user = 1;
             }
-            if ($item->send_user == 0) {
+            if ($item->send_owner == 0) {
                 Mail::to($item->category->owner_email)
                     ->send(new RequestCreatedAdmin($item));
                 var_dump('Owner: ' . $item->category->owner_email);
