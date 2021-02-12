@@ -13,6 +13,7 @@ Sizning maqolangiz:
     <li>Email: {{ $requestModel->email }}</li>
     <li>Mualliflar: {{ $requestModel->authors }}</li>
     <li>Yo'nalish: {{ $requestModel->category->name }}</li>
+    <li>Murojaat uchun email: {{ $requestModel->category->owner_email }}</li>
     <li>Mavzu: {{ $requestModel->subject }}</li>
     <li>To'lov statusi: {{ $requestModel->payment_status }}</li>
     <li>Fayl: <a href="https://conferences-list.uz/storage/{{ $requestModel->file }}">https://conferences-list.uz/storage/{{ $requestModel->file }}</a></li>
