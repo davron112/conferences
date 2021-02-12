@@ -18,6 +18,7 @@ Sizning maqolangiz:
     <li>Fayl: <a href="https://conferences-list.uz/storage/{{ $requestModel->file }}">https://conferences-list.uz/storage/{{ $requestModel->file }}</a></li>
 </ul>
 <p>
+<span style="color: red;">Xolati: <b>Ko'rib chiqish jarayonida</b></span>
 <span style="color: red;">Murojaat uchun email: {{ $requestModel->category->owner_email }}</span>
 </p>
 </body>
