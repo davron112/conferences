@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\FileHelper;
+use App\Mail\RequestCreatedAdmin;
+use App\Mail\RequestCreatedClient;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\RequestCreateRequest;
@@ -93,6 +96,12 @@ class RequestsController extends Controller
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $requestModel = $this->repository->create($data);
+
+            Mail::to($requestModel->email)
+                ->send(new RequestCreatedClient($requestModel));
+
+            Mail::to($requestModel->category->owner_email)
+                ->send(new RequestCreatedAdmin($requestModel));
 
             $response = [
                 'message' => 'Sizning maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
