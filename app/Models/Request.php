@@ -24,6 +24,8 @@ class Request extends Model implements Transformable
         'conference_id',
         'category_id',
         'user_id',
+        'send_owner',
+        'send_user',
         'email',
         'username',
         'status',
