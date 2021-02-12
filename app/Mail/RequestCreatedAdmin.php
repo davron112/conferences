@@ -31,7 +31,7 @@ class RequestCreatedAdmin extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('Conferences-list.uz - Maqola #' . $this->requestModel->id . '-' . $this->requestModel->username)
+            ->subject('CONFERENCES-LIST.UZ - Maqola #' . $this->requestModel->id . '-' . $this->requestModel->username)
             ->view('emails.request.admin', ['requestModel' => $this->requestModel]);
     }
 }
