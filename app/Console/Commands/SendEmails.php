@@ -57,6 +57,7 @@ class SendEmails extends Command
                 var_dump('Owner: ' . $item->category->owner_email);
                 $statusChanged = true;
                 $item->send_owner = 1;
+                sleep(30);
             }
 
             if ($statusChanged) {
