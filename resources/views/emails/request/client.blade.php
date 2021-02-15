@@ -19,6 +19,7 @@ Sizning maqolangiz:
 </ul>
 <p>
 <span style="color: red;">Xolati: <b>Ko'rib chiqish jarayonida</b></span>
+    <br/>
 <span style="color: red;">Murojaat uchun email: {{ $requestModel->category->owner_email }}</span>
 </p>
 </body>
