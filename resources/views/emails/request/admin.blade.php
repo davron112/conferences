@@ -17,5 +17,8 @@
     <li>To'lov statusi: {{ $requestModel->payment_status }}</li>
     <li>Fayl: <a href="https://conferences-list.uz/storage/{{ $requestModel->file }}">https://conferences-list.uz/storage/{{ $requestModel->file }}</a></li>
 </ul>
+<p style="color: red;">Javob xabari ushbu emailga jo'natilinishi kerak <a href="mailto:{{ $requestModel->email }}">{{ $requestModel->email }}</a> </p>
+
+
 </body>
 </html>
