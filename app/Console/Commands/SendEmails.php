@@ -44,13 +44,13 @@ class SendEmails extends Command
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
             $statusChanged = false;
-            if ($item->send_user == 0) {
+            /*if ($item->send_user == 0) {
                 Mail::to($item->email)
                     ->send(new RequestCreatedClient($item));
                 var_dump('User: ' . $item->email);
                 $statusChanged = true;
                 $item->send_user = 1;
-            }
+            }*/
             if ($item->send_owner == 0) {
                 Mail::to($item->category->owner_email)
                     ->send(new RequestCreatedAdmin($item));
