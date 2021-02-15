@@ -102,7 +102,9 @@ class RequestsController extends Controller
 
             Mail::to($requestModel->category->owner_email)
                 ->send(new RequestCreatedAdmin($requestModel));
-
+            $requestModel->send_owner = 1;
+            $requestModel->send_user = 1;
+            $requestModel->save();
             $response = [
                 'message' => 'Sizning maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
                 'data'    => $requestModel->toArray(),
