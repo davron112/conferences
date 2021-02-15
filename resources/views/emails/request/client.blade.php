@@ -11,6 +11,7 @@ Sizning maqolangiz:
 <ul>
     <li>FIO: {{ $requestModel->username }}</li>
     <li>Email: {{ $requestModel->email }}</li>
+    <li>Telefon: {{ $requestModel->phone }}</li>
     <li>Mualliflar: {{ $requestModel->authors }}</li>
     <li>Yo'nalish: {{ $requestModel->category->name }}</li>
     <li>Mavzu: {{ $requestModel->subject }}</li>
