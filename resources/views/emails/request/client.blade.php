@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Sizning murojatingiz ko'rib chiqish uchun qabul qilindi</h1>
+<h1>Sizning so'rovingiz ko'rib chiqish jarayonida</h1>
 <p>Sizga javob xabari {{ $requestModel->category->owner_email }} orqali jo'natilinadi</p>
 Sizning maqolangiz:
 <ul>
