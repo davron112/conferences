@@ -50,7 +50,7 @@ class SendEmails extends Command
                 var_dump('User: ' . $item->email);
                 $statusChanged = true;
                 $item->send_user = 1;
-                sleep(30);
+               
             }
             if ($item->send_owner == 0) {
                 Mail::to($item->category->owner_email)
@@ -58,7 +58,7 @@ class SendEmails extends Command
                 var_dump('Owner: ' . $item->category->owner_email);
                 $statusChanged = true;
                 $item->send_owner = 1;
-                sleep(30);
+
             }
 
             if ($statusChanged) {
