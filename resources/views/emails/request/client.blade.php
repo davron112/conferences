@@ -9,6 +9,7 @@
 <p>Sizga javob xabari {{ $requestModel->category->owner_email }} orqali jo'natilinadi</p>
 Sizning maqolangiz:
 <ul>
+    <li>Maqola raqami: #{{ $requestModel->id }}</li>
     <li>FIO: {{ $requestModel->username }}</li>
     <li>Email: {{ $requestModel->email }}</li>
     <li>Telefon: {{ $requestModel->phone }}</li>
@@ -21,7 +22,7 @@ Sizning maqolangiz:
 <p>
 <span style="color: red;">Xolati: <b>Ko'rib chiqish jarayonida</b></span>
     <br/>
-<span style="color: red;">Murojaat uchun email: {{ $requestModel->category->owner_email }}</span>
+<span style="color: red;">Murojaat uchun email: <a href="mailto:{{ $requestModel->category->owner_email }}">{{ $requestModel->category->owner_email }}</a></span>
 </p>
 </body>
 </html>
