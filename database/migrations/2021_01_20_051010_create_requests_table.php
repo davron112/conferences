@@ -29,6 +29,7 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('email');
             $table->string('username');
+            $table->string('phone')->nullable();
             $table->string('subject')->nullable();
             $table->string('authors');
             $table->foreign('user_id')->references('id')->on('users');

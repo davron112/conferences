@@ -27,6 +27,7 @@ class Request extends Model implements Transformable
         'send_owner',
         'send_user',
         'email',
+        'phone',
         'username',
         'status',
         'payment_status',

@@ -50,11 +50,21 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="username" class="form-control lgxname" id="lgxusername" placeholder="FIO">
+                                    <input type="text" name="username" class="form-control lgxname" id="lgxusername" placeholder="FIO" required>
 
                                     @if($errors->has('username'))
                                         <span class="has-error" style="color: red;">
                                             {{ ($errors->get('username')[0]) }}
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" name="phone" class="form-control lgxphone" id="lgxphone" placeholder="Bog'lanish uchun telefon" required>
+
+                                    @if($errors->has('phone'))
+                                        <span class="has-error" style="color: red;">
+                                            {{ ($errors->get('phone')[0]) }}
                                         </span>
                                     @endif
                                 </div>

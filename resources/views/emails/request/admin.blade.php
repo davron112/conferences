@@ -10,6 +10,7 @@
     <li>№: #{{ $requestModel->id }}</li>
     <li>FIO: {{ $requestModel->username }}</li>
     <li>Email: {{ $requestModel->email }}</li>
+    <li>Telefon: {{ $requestModel->phone }}</li>
     <li>Foydalanuvchi xabari: {{ $requestModel->note_client }}</li>
     <li>Mualliflar: {{ $requestModel->authors }}</li>
     <li>Yo'nalish: {{ $requestModel->category->name }}</li>
