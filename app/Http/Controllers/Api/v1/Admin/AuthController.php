@@ -53,7 +53,7 @@ class AuthController extends Controller
     {
         $data = $request->all();
 
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+        if(Auth::attempt(['email' => trim($data['email']), 'password' => trim($data['password'])])){
             /** @var User $user */
             $user = Auth::user();
             $success['userData'] =  [
