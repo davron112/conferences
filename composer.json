@@ -14,6 +14,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "irazasyed/telegram-bot-sdk": "^3.4",
         "laravel/framework": "^8.12",
+        "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.7"

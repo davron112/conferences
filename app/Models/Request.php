@@ -15,6 +15,17 @@ class Request extends Model implements Transformable
 {
     use TransformableTrait;
 
+    const STATUS_NEW = 'NEW';
+
+    const STATUS_APPROVED = 'ACCEPTED';
+
+    const STATUS_NOT_APPROVED = 'NOT_ACCEPTED';
+
+    const PAYMENT_STATUS_PAID = 'PAID';
+
+    const PAYMENT_STATUS_UNPAID = 'UNPAID';
+
+    protected $appends = ['category_name'];
     /**
      * The attributes that are mass assignable.
      *
@@ -46,4 +57,11 @@ class Request extends Model implements Transformable
         return $this->belongsTo(Category::class);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCategoryNameAttribute()
+    {
+        return $this->category->name;
+    }
 }

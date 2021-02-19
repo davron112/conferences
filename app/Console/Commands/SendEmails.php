@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedAdmin;
 use App\Mail\RequestCreatedClient;
 use App\Models\Request;
@@ -44,22 +45,22 @@ class SendEmails extends Command
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
             $statusChanged = false;
-            if ($item->send_user == 0) {
+            /*if ($item->status != 'NEW') {
                 Mail::to($item->email)
-                    ->send(new RequestCreatedClient($item));
+                    ->send(new CustomMessage("-"));
                 var_dump('User: ' . $item->email);
                 $statusChanged = true;
                 $item->send_user = 1;
-               
-            }
-            if ($item->send_owner == 0) {
+
+            }*/
+            /*if ($item->send_owner == 0) {
                 Mail::to($item->category->owner_email)
                     ->send(new RequestCreatedAdmin($item));
                 var_dump('Owner: ' . $item->category->owner_email);
                 $statusChanged = true;
                 $item->send_owner = 1;
 
-            }
+            }*/
 
             if ($statusChanged) {
                 $item->save();

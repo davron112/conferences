@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Criteria\StatusesCreteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\Contracts\RequestRepository;
@@ -44,5 +45,31 @@ class RequestRepositoryEloquent extends BaseRepository implements RequestReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    /**
+     * @param string $status
+     * @return $this
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function filterByStatus($status = '')
+    {
+        $this->status = $status;
+        $this->pushCriteria(app(StatusesCreteria::class));
+        return $this;
+    }
+
+    /**
+     * @param string $id
+     * @return $this
+     */
+    public function filterCategory($id = '')
+    {
+        if ($id) {
+            $this->findWhere([
+                'category_id' => $id
+            ]);
+        }
+        return $this;
+    }
+
 }

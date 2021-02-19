@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
+use App\Repositories\RequestRepositoryEloquent;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
@@ -11,5 +12,10 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface RequestRepository extends RepositoryInterface
 {
-    //
+    /**
+     * @param string $status
+     * @return $this
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function filterByStatus($status = '');
 }
