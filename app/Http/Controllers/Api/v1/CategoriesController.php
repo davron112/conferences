@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\RequestRepository;
+use App\Repositories\Contracts\CategoryRepository;
 use App\Validators\RequestValidator;
 
 /**
@@ -14,7 +14,7 @@ use App\Validators\RequestValidator;
 class CategoriesController extends Controller
 {
     /**
-     * @var RequestRepository
+     * @var CategoryRepository
      */
     protected $repository;
 
@@ -30,12 +30,12 @@ class CategoriesController extends Controller
 
     /**
      * RequestsController constructor.
-     * @param RequestRepository $repository
+     * @param CategoryRepository $repository
      * @param RequestValidator $validator
      * @param FileHelper $fileHelper
      */
     public function __construct(
-        RequestRepository $repository,
+        CategoryRepository $repository,
         RequestValidator $validator,
         FileHelper $fileHelper
     )
@@ -50,8 +50,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $requestsModel = $this->repository
-            ->all();
+        $requestsModel = $this->repository->all();
 
         return response()->json([
             'data' => $requestsModel,
