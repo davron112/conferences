@@ -89,11 +89,11 @@ class RequestsController extends Controller
             ->filterByStatus($filter)
             ->whereIn('category_id', [$catId])
             ->paginate($limit);
-        $new = Request::where('status', Request::STATUS_NEW)->count();
-        $approved = Request::where('status', Request::STATUS_APPROVED)->count();
-        $not_approved = Request::where('status', Request::STATUS_NOT_APPROVED)->count();
-        $paid = Request::where('payment_status', Request::PAYMENT_STATUS_PAID)->count();
-        $un_paid = Request::where('payment_status', Request::PAYMENT_STATUS_UNPAID)->count();
+        $new = Request::where('status', Request::STATUS_NEW)->where('category_id', $catId)->count();
+        $approved = Request::where('status', Request::STATUS_APPROVED)->where('category_id', $catId)->count();
+        $not_approved = Request::where('status', Request::STATUS_NOT_APPROVED)->where('category_id', $catId)->count();
+        $paid = Request::where('payment_status', Request::PAYMENT_STATUS_PAID)->where('category_id', $catId)->count();
+        $un_paid = Request::where('payment_status', Request::PAYMENT_STATUS_UNPAID)->where('category_id', $catId)->count();
 
         return response()->json([
             'data' => $requestsModel,
