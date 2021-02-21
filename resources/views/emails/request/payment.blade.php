@@ -10,8 +10,9 @@
 <p>
     Assalomu aleykum. Tabriklaymiz sizning #{{ $id }} raqamli maqolangiz qabul qilindi! <br>
     Anjumanda qatnashish uchun 50 ming so'm hajmdagi summani to'lashingizni so'raymiz.<br>
-    To'lovni ushbu havola orqali amalga oshirishingiz mumkin<br>
-    <a href="{{ $link }}">{{ $link }}</a>
+    <br>
 </p>
+    To'lovni <a target="_blank" href="{{ $link }}">ushbu havola</a> orqali amalga oshirishingiz mumkin<br>
+    <a target="_blank" href="{{ $link }}">$link</a>
 </body>
 </html>
