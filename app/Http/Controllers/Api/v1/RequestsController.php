@@ -177,6 +177,43 @@ class RequestsController extends Controller
             ]);
         }
     }
+    /**
+     * @param RequestUpdateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function acceptPayment(RequestUpdateRequest $request)
+    {
+        try {
+
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+
+            $requestModel = $this->repository->find($id);
+            $requestModel->payment_status = Request::PAYMENT_STATUS_PAID;
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+
+            $response = [
+                'message' => 'Request updated.',
+                'data'    => $requestModel->toArray(),
+            ];
+
+            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz uchun to'lov qabul qilindi. Tabriklaymiz siz anjuman ishtirokchisiga aylandingiz!";
+
+            Mail::to($requestModel->email)
+                ->send(new CustomMessage($text));
+
+            return response()->json($response);
+
+        } catch (ValidatorException $e) {
+
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessageBag()
+            ]);
+        }
+    }
 
     /**
      * @param RequestUpdateRequest $request
