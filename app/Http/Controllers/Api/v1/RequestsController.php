@@ -324,6 +324,7 @@ class RequestsController extends Controller
                 ->send(new PaymentMessage($requestModel->id, $link));
 
             $requestModel->payment_status = Request::PAYMENT_STATUS_SENT;
+            $requestModel->payment_link = $link;
 
             if (!$requestModel->save()) {
                 throw new \Exception('Not saved');
