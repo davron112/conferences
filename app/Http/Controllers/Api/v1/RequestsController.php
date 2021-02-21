@@ -81,27 +81,34 @@ class RequestsController extends Controller
         $data = $request->all();
         $user = Auth::user();
 
-        $category = $this->categoryRepository->where('owner_email', 'LIKE', "%$user->email%")->first();
+        $catIds = [];
 
-        $catId = '';
-        if ($category) {
-            $catId = $category->id;
+        if ($user->email == 'zamira.lars@gmail.com') {
+            $cats = Category::all();
+            foreach ($cats as $item) {
+                array_push($item->id);
+            }
+        } else {
+            $category = $this->categoryRepository->where('owner_email', 'LIKE', "%$user->email%")->first();
+            if ($category) {
+                array_push($catIds, $category->id);
+            }
         }
 
         $limit = Arr::get($data, 'limit', 20);
         $filter = Arr::get($data, 'filterStatus', '');
         $requestsModel = $this->repository
             ->filterByStatus($filter)
-            ->whereIn('category_id', [$catId])
+            ->whereIn('category_id', $catIds)
             ->paginate($limit);
-        $new = Request::where('status', Request::STATUS_NEW)->where('category_id', $catId)->count();
-        $approved = Request::where('status', Request::STATUS_APPROVED)->where('category_id', $catId)->count();
-        $not_approved = Request::where('status', Request::STATUS_NOT_APPROVED)->where('category_id', $catId)->count();
-        $fail = Request::where('status', Request::STATUS_FAIL)->where('category_id', $catId)->count();
-        $re_upload = Request::where('status', Request::STATUS_RE_UPLOAD)->where('category_id', $catId)->count();
-        $paid = Request::where('payment_status', Request::PAYMENT_STATUS_PAID)->where('category_id', $catId)->count();
-        $un_paid = Request::where('payment_status', Request::PAYMENT_STATUS_UNPAID)->where('category_id', $catId)->count();
-        $sent = Request::where('payment_status', Request::PAYMENT_STATUS_SENT)->where('category_id', $catId)->count();
+        $new = Request::where('status', Request::STATUS_NEW)->whereIn('category_id', $catIds)->count();
+        $approved = Request::where('status', Request::STATUS_APPROVED)->whereIn('category_id', $catIds)->count();
+        $not_approved = Request::where('status', Request::STATUS_NOT_APPROVED)->whereIn('category_id', $catIds)->count();
+        $fail = Request::where('status', Request::STATUS_FAIL)->whereIn('category_id', $catIds)->count();
+        $re_upload = Request::where('status', Request::STATUS_RE_UPLOAD)->whereIn('category_id', $catIds)->count();
+        $paid = Request::where('payment_status', Request::PAYMENT_STATUS_PAID)->whereIn('category_id', $catIds)->count();
+        $un_paid = Request::where('payment_status', Request::PAYMENT_STATUS_UNPAID)->whereIn('category_id', $catIds)->count();
+        $sent = Request::where('payment_status', Request::PAYMENT_STATUS_SENT)->whereIn('category_id', $catIds)->count();
 
         return response()->json([
             'data' => $requestsModel,
