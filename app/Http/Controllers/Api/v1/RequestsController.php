@@ -288,6 +288,12 @@ class RequestsController extends Controller
             if (!$requestModel->save()) {
                 throw new \Exception('Not saved');
             }
+            $response = [
+                'message' => 'Request updated.',
+                'data'    => $requestModel->toArray(),
+            ];
+
+            return response()->json($response);
 
         } catch (ValidatorException $e) {
             Log::error('Not changed reupload status', [
@@ -322,6 +328,12 @@ class RequestsController extends Controller
             if (!$requestModel->save()) {
                 throw new \Exception('Not saved');
             }
+            $response = [
+                'message' => 'Request updated.',
+                'data'    => $requestModel->toArray(),
+            ];
+
+            return response()->json($response);
 
         } catch (ValidatorException $e) {
             Log::error('Not changed payment status', [
