@@ -84,9 +84,9 @@ class RequestsController extends Controller
         $catIds = [];
 
         if ($user->email == 'zamira.lars@gmail.com') {
-            $cats = Category::all();
+            $cats = $this->categoryRepository->all();
             foreach ($cats as $item) {
-                array_push($item->id);
+                array_push($catIds, $item->id);
             }
         } else {
             $category = $this->categoryRepository->where('owner_email', 'LIKE', "%$user->email%")->first();
