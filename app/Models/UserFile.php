@@ -23,6 +23,7 @@ class UserFile extends Model implements Transformable
     protected $fillable = [
         'file_path',
         'request_id',
+        'version',
         'type'
     ];
 

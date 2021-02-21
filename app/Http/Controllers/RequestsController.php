@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\FileHelper;
 use App\Mail\RequestCreatedAdmin;
 use App\Mail\RequestCreatedClient;
+use App\Models\UserFile;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -110,19 +111,54 @@ class RequestsController extends Controller
                 'data'    => $requestModel->toArray(),
             ];
 
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
             return view('registration', $response);
         } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
+
+
+            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  RequestCreateRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     */
+    public function reUpload(RequestCreateRequest $request)
+    {
+        try {
+            $data = $request->all();
+            if ($request->isMethod('GET')) {
+                return view('change');
+            }
+            $hash = Arr::get($data, 'hash');
+            $requestModel = \App\Models\Request::where('hash', $hash)->first();
+            $uploadedImage = Arr::get($data, 'file');
+            $data['request_id'] = $requestModel->id;
+
+            if ($uploadedImage) {
+                $data['file'] = $this->fileHelper->upload($uploadedImage, 'files');
             }
 
+            $fileData = UserFile::create($data);
+
+            /*Mail::to($fileData->email)
+                ->send(new RequestCreatedClient($requestModel));
+
+            Mail::to($requestModel->category->owner_email)
+                ->send(new RequestCreatedAdmin($requestModel));*/
+
+            $response = [
+                'message' => 'Sizning maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
+                'data'    => $fileData->toArray(),
+            ];
+
+            return view('change', $response);
+        } catch (ValidatorException $e) {
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }

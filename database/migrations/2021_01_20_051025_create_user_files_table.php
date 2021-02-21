@@ -21,6 +21,7 @@ class CreateUserFilesTable extends Migration
             $table->foreign('request_id')->references('id')->on('requests');
             $table->string('file_path');
             $table->string('type');
+            $table->string('version');
 
             $table->timestamps();
 		});

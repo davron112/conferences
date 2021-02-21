@@ -6,12 +6,14 @@ use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedClient;
+use App\Mail\ReUploadMessage;
 use App\Models\Category;
 use App\Models\Request;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -21,7 +23,7 @@ use App\Validators\RequestValidator;
 
 /**
  * Class RequestsController
- * @package App\Http\Controllers\Api
+ * @package App\Http\Controllers\Api\v1
  */
 class RequestsController extends Controller
 {
@@ -47,9 +49,11 @@ class RequestsController extends Controller
 
     /**
      * RequestsController constructor.
+     *
      * @param RequestRepository $repository
      * @param RequestValidator $validator
      * @param FileHelper $fileHelper
+     * @param CategoryRepository $categoryRepository
      */
     public function __construct(
         RequestRepository $repository,
@@ -145,7 +149,44 @@ class RequestsController extends Controller
                 'data'    => $requestModel->toArray(),
             ];
 
-            $text = "Sizning maqolangiz qabul qilindi. Sizga to'lov xabari jo'natilinadi. Ma'lumot uchun +998937077371";
+            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz qabul qilindi. Sizga to'lov xabari jo'natilinadi. Ma'lumot uchun +998937077371";
+
+            Mail::to($requestModel->email)
+                ->send(new CustomMessage($text));
+
+            return response()->json($response);
+
+        } catch (ValidatorException $e) {
+
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessageBag()
+            ]);
+        }
+    }
+
+    /**
+     * @param RequestUpdateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fail(RequestUpdateRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+
+            $requestModel = $this->repository->find($id);
+            $requestModel->status = Request::STATUS_FAIL;
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+
+            $response = [
+                'message' => 'Request updated.',
+                'data'    => $requestModel->toArray(),
+            ];
+
+            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz texnik xatolik sababidan bekor qilindi. Ma'lumot uchun +998937077371";
 
             Mail::to($requestModel->email)
                 ->send(new CustomMessage($text));
@@ -176,11 +217,12 @@ class RequestsController extends Controller
             $requestModel = $this->repository->find($id);
             $requestModel->status = Request::STATUS_NOT_APPROVED;
             $requestModel->answer_text = $answer_text;
+
             if (!$requestModel->save()) {
                 throw new \Exception('Not saved');
             }
 
-            $text = "Sizning maqolangiz qabul qilinmadi: " . PHP_EOL . $answer_text;
+            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz qabul qilinmadi: " . PHP_EOL . $answer_text;
 
             Mail::to($requestModel->email)
                 ->send(new CustomMessage($text));
@@ -217,6 +259,40 @@ class RequestsController extends Controller
 
         } catch (ValidatorException $e) {
 
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessageBag()
+            ]);
+        }
+    }
+
+    /**
+     * @param RequestUpdateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function reUploadMessage(RequestUpdateRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+            $text = Arr::get($data, 'text');
+            $requestModel = $this->repository->find($id);
+
+            Mail::to($requestModel->email)
+                ->send(new ReUploadMessage($requestModel->hash, $text));
+
+            $requestModel->status = Request::STATUS_RE_UPLOAD;
+
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+
+        } catch (ValidatorException $e) {
+            Log::error('Not changed reupload status', [
+                'message' => $e->getMessage(),
+                'error' => $e
+            ]);
             return response()->json([
                 'error'   => true,
                 'message' => $e->getMessageBag()

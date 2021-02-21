@@ -19,6 +19,10 @@ class Request extends Model implements Transformable
 
     const STATUS_APPROVED = 'ACCEPTED';
 
+    const STATUS_RE_UPLOAD = 'RE_UPLOAD';
+
+    const STATUS_FAIL = 'FAIL';
+
     const STATUS_NOT_APPROVED = 'NOT_ACCEPTED';
 
     const PAYMENT_STATUS_PAID = 'PAID';
@@ -47,6 +51,7 @@ class Request extends Model implements Transformable
         'authors',
         'subject',
         'file',
+        'hash',
         'answer_text'
     ];
 
@@ -63,5 +68,9 @@ class Request extends Model implements Transformable
     public function getCategoryNameAttribute()
     {
         return $this->category->name;
+    }
+
+    public function setHashAttribute() {
+        $this->attributes['hash'] = md5(rand(100, 99999));
     }
 }

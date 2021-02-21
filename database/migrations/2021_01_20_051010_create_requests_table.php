@@ -32,6 +32,7 @@ class CreateRequestsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('subject')->nullable();
             $table->string('authors');
+            $table->string('hash')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 		});
