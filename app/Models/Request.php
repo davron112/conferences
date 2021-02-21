@@ -27,6 +27,8 @@ class Request extends Model implements Transformable
 
     const PAYMENT_STATUS_PAID = 'PAID';
 
+    const PAYMENT_STATUS_SENT= 'SENT';
+
     const PAYMENT_STATUS_UNPAID = 'UNPAID';
 
     protected $appends = ['category_name'];

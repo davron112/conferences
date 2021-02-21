@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Mail\CustomMessage;
+use App\Mail\PaymentMessage;
 use App\Mail\RequestCreatedClient;
 use App\Mail\ReUploadMessage;
 use App\Models\Category;
@@ -290,6 +291,40 @@ class RequestsController extends Controller
 
         } catch (ValidatorException $e) {
             Log::error('Not changed reupload status', [
+                'message' => $e->getMessage(),
+                'error' => $e
+            ]);
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessageBag()
+            ]);
+        }
+    }
+
+    /**
+     * @param RequestUpdateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function paymentSent(RequestUpdateRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+            $link = Arr::get($data, 'text');
+            $requestModel = $this->repository->find($id);
+
+            Mail::to($requestModel->email)
+                ->send(new PaymentMessage($requestModel->id, $link));
+
+            $requestModel->payment_status = Request::PAYMENT_STATUS_SENT;
+
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+
+        } catch (ValidatorException $e) {
+            Log::error('Not changed payment status', [
                 'message' => $e->getMessage(),
                 'error' => $e
             ]);
