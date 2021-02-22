@@ -9,7 +9,7 @@
 
 <p>
     Assalomu aleykum.<br>
-    Sizning #{{ $requestModel->id }} da maqolangizda kamchiliklar mavjud.<br>
+    Sizning #{{ $requestModel->id }} raqamli maqolangizda kamchiliklar mavjud.<br>
     Qayta yuklamasangiz sizning maqolangiz qabul qilinmasligi mumkin.<br>
     <h3>Mutaxassis javobi:</h3> <b>{{ $text }}</b>
 </p>
