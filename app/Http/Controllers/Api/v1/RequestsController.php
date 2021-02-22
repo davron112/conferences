@@ -374,7 +374,7 @@ class RequestsController extends Controller
                 ->send(new PaymentMessage($requestModel->id, $link));
 
             if ($requestModel->phone) {
-                $textSms = "" . $requestModel->id . " maqolangizga to'lov qilish uchun havola. " . $link;
+                $textSms = "#" . $requestModel->id . " maqolangizga to'lov qilish uchun havola. " . $link;
                 $this->sendSms($requestModel->phone, $textSms);
             }
 
