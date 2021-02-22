@@ -162,7 +162,7 @@ class RequestsController extends Controller
                 'data'    => $requestModel->toArray(),
             ];
 
-            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz qabul qilindi. Sizga to'lov xabari jo'natilinadi. Ma'lumot uchun +998937077371";
+            $text = "Sizning #" . $requestModel->id . " raqamli maqolangiz qabul qilindi. Iltimos kuting sizga tez orada to'lov xabari jo'natilinadi. Ma'lumot uchun +998937077371";
 
             Mail::to($requestModel->email)
                 ->send(new CustomMessage($text));
