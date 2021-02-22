@@ -331,7 +331,7 @@ class RequestsController extends Controller
             $requestModel = $this->repository->find($id);
 
             Mail::to($requestModel->email)
-                ->send(new ReUploadMessage($requestModel->hash, $text));
+                ->send(new ReUploadMessage($requestModel, $text));
 
             $requestModel->status = Request::STATUS_RE_UPLOAD;
 

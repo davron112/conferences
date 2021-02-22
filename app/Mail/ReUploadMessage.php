@@ -12,15 +12,15 @@ class ReUploadMessage extends Mailable
 
     protected $text;
 
-    protected $hash;
+    protected $requestModel;
 
     /**
      * CustomMessage constructor.
      * @param $text
      */
-    public function __construct($hash, $text = '')
+    public function __construct($requestModel, $text = '')
     {
-        $this->hash = $hash;
+        $this->requestModel = $requestModel;
         $this->text = $text;
     }
 
@@ -32,9 +32,9 @@ class ReUploadMessage extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('CONFERENCES-LIST.UZ - Maqolangizni qayta yuklang!')
+            ->subject('CONFERENCES-LIST.UZ - #' . $this->requestModel->id . ' maqolangizni qayta yuklang!')
             ->view('emails.request.reupload', [
-                'hash' => $this->hash,
+                'requestModel' => $this->requestModel,
                 'text' => $this->text
             ]);
     }

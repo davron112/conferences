@@ -9,13 +9,13 @@
 
 <p>
     Assalomu aleykum.<br>
-    Sizning maqolangizda kamchiliklar mavjud.<br>
+    Sizning #{{ $requestModel->id }} da maqolangizda kamchiliklar mavjud.<br>
     Qayta yuklamasangiz sizning maqolangiz qabul qilinmasligi mumkin.<br>
     <h3>Mutaxassis javobi:</h3> <b>{{ $text }}</b>
 </p>
 <p>
     <span style="color: #b3710d;">Qayta yuklash uchun quyidagi havolaga bosing:</span><br>
-    <a href="http://conferences-list.uz/change?hash={{ $hash }}">http://conferences-list.uz/change?hash={{ $hash }}</a>
+    <a href="http://conferences-list.uz/change?hash={{ $requestModel->hash }}">http://conferences-list.uz/change?hash={{ $requestModel->hash }}</a>
 </p>
 </body>
 </html>
