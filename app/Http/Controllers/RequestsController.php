@@ -155,7 +155,7 @@ class RequestsController extends Controller
                 ->send(new RequestCreatedAdmin($requestModel));*/
 
             $response = [
-                'message' => 'Sizning maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
+                'message' => 'Sizning #' . $requestModel->id . ' raqamli maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
                 'data'    => $fileData->toArray(),
             ];
 

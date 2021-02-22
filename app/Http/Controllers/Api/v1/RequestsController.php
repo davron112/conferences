@@ -98,6 +98,7 @@ class RequestsController extends Controller
         $limit = Arr::get($data, 'limit', 20);
         $filter = Arr::get($data, 'filterStatus', '');
         $requestsModel = $this->repository
+            ->with('user_files')
             ->filterByStatus($filter)
             ->whereIn('category_id', $catIds)
             ->paginate($limit);

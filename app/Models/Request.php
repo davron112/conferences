@@ -64,6 +64,10 @@ class Request extends Model implements Transformable
         return $this->belongsTo(Category::class);
     }
 
+    public function userFiles() {
+        return $this->hasMany(UserFile::class, 'request_id', 'id');
+    }
+
     /**
      * @return mixed
      */
