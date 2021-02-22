@@ -138,10 +138,11 @@ class RequestsController extends Controller
             $hash = Arr::get($data, 'hash');
             $requestModel = \App\Models\Request::where('hash', $hash)->first();
             $uploadedImage = Arr::get($data, 'file');
+            $data['version'] = Arr::get($data, 'version', rand(1, 999));
             $data['request_id'] = $requestModel->id;
 
             if ($uploadedImage) {
-                $data['file'] = $this->fileHelper->upload($uploadedImage, 'files');
+                $data['file_path'] = $this->fileHelper->upload($uploadedImage, 'files');
             }
 
             $fileData = UserFile::create($data);

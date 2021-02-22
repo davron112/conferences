@@ -49,6 +49,9 @@
                                         </span>
                                         @endif
                                     </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Versiyaga raqamlang: masalan v1" name="version" class="form-control lgxname">
+                                        </div>
 
                                     <input type="hidden" name="_token" id="lgx_token" value="<?php echo csrf_token(); ?>">
 
