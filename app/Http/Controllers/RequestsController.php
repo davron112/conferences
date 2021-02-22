@@ -139,6 +139,7 @@ class RequestsController extends Controller
             $requestModel = \App\Models\Request::where('hash', $hash)->first();
             $uploadedImage = Arr::get($data, 'file');
             $data['version'] = Arr::get($data, 'version', rand(1, 999));
+            $data['type'] = 'FILE';
             $data['request_id'] = $requestModel->id;
 
             if ($uploadedImage) {
