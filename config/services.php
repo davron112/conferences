@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    "sms" => [
+        "api_key" => env('SMS_API_KEY'),
+        "app_id" => env('SMS_APP_ID')
+    ]
+
 ];
