@@ -12,16 +12,16 @@ class PaymentMessage extends Mailable
 
     protected $link;
 
-    protected $id;
+    protected $requestModel;
 
     /**
      * PaymentMessage constructor.
      * @param $id
      * @param string $link
      */
-    public function __construct($id, $link = '')
+    public function __construct($requestModel, $link = '')
     {
-        $this->id = $id;
+        $this->requestModel = $requestModel;
         $this->link = $link;
     }
 
@@ -33,7 +33,7 @@ class PaymentMessage extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('CONFERENCES-LIST.UZ - To\'lovni amalga oshiring')
-            ->view('emails.request.payment', ['link' => $this->link, 'id' => $this->id]);
+            ->subject('CONFERENCES-LIST.UZ - #' . $this->requestModel->id . ' maqolaga to\'lovni amalga oshiring')
+            ->view('emails.request.payment', ['link' => $this->link, 'requestModel' => $this->requestModel]);
     }
 }

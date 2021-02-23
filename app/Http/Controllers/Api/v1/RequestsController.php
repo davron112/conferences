@@ -371,7 +371,7 @@ class RequestsController extends Controller
             $requestModel = $this->repository->find($id);
 
             Mail::to($requestModel->email)
-                ->send(new PaymentMessage($requestModel->id, $link));
+                ->send(new PaymentMessage($requestModel, $link));
 
             if ($requestModel->phone) {
                 $textSms = "#" . $requestModel->id . " maqolangizga to'lov qilish uchun havola. " . $link;
