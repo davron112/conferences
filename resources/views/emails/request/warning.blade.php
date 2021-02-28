@@ -18,7 +18,7 @@
     Maqola fayli: <a href="https://conferences-list.uz/storage/{{ $requestModel->file }}">https://conferences-list.uz/storage/{{ $requestModel->file }}</a><br>
     Seksiyasi: {{ $requestModel->category->name }}<br>
 </p>
-    To'lovni <a target="_blank" href="{{ $link }}">ushbu havola</a> orqali amalga oshirishingiz mumkin<br>
+    To'lovni <a target="_blank" href="{{ $requestModel->payment_link }}">ushbu havola</a> orqali amalga oshirishingiz mumkin<br>
     <a target="_blank" href="{{ $requestModel->payment_link }}">{{ $requestModel->payment_link }}</a>
 
     <p>
