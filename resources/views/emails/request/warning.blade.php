@@ -19,7 +19,7 @@
     Seksiyasi: {{ $requestModel->category->name }}<br>
 </p>
     To'lovni <a target="_blank" href="{{ $link }}">ushbu havola</a> orqali amalga oshirishingiz mumkin<br>
-    <a target="_blank" href="{{ $link }}">{{ $link }}</a>
+    <a target="_blank" href="{{ $requestModel->payment_link }}">{{ $requestModel->payment_link }}</a>
 
     <p>
        Qo'shimcha: To'lov amalga oshirgandan keyin uni tasdiqlash shart emas
