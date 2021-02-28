@@ -20,5 +20,9 @@
 </p>
     To'lovni <a target="_blank" href="{{ $link }}">ushbu havola</a> orqali amalga oshirishingiz mumkin<br>
     <a target="_blank" href="{{ $link }}">{{ $link }}</a>
+
+    <p>
+       Qo'shimcha: To'lov amalga oshirgandan keyin uni tasdiqlash shart emas
+    </p>
 </body>
 </html>
