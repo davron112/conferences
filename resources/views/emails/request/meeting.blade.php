@@ -16,7 +16,6 @@
     Oflayn:<br>
     Manzil: TATU, kichik majlislar zali<br>
 
-    Qatnashuvchilarni ro'yxatga olish vaqti: 09:00 – 10:00<br>
     Birinchi yalpi majlis vaqti: 10:00 – 12:00<br>
 
     TATU rektori S.N. Babaxodjaevning kirish so'zi<br>
@@ -25,7 +24,7 @@
     <a href="https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20">https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20</a>
 
 
-    Konferensiya identifikatori: 839 1461 4041
+    Konferensiya identifikatori: 83914614041
     Kirish kodi: 764643
 
 </p>
