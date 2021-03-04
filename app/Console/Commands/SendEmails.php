@@ -53,7 +53,7 @@ class SendEmails extends Command
                 var_dump('Konferensiya: ' . $item->id);
                 var_dump('User: ' . $item->email);
 
-                if ($item->phone) {
+                if (true) {
                     $textSms = "conferences-list.uz - 4-5-mart kunlari konferensiyada ishtirok etishingiz uchun. " . $item->payment_link;
                     $this->sendSms(998937077371, $textSms);
                     $textSms2 = "conferences-list.uz - Bugun soat 10:00 da konferensiyani ochilish marosimida ishtitok eting. Zoom: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041. " . $item->payment_link;
