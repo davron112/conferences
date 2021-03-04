@@ -3518,6 +3518,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
+                                <br>
+                                <h3>Konferensiya o'tkaziladigan manzilllar va havolalar</h3>
+                                <br>
                                 <table width="829">
                                     <tbody>
                                     <tr style="height: 355px;">
