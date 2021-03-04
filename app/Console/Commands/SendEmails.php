@@ -48,16 +48,16 @@ class SendEmails extends Command
         foreach ($userRequests as $item) {
             $statusChanged = false;
             if ($item->status == Request::STATUS_APPROVED) {
-                Mail::to('achilov21@yandex.com')
+                Mail::to($item->email)
                     ->send(new BulkToMeeting($item));
                 var_dump('Konferensiya: ' . $item->id);
                 var_dump('User: ' . $item->email);
 
-                if (true) {
-                    $textSms = "conferences-list.uz - 4-5-mart kunlari konferensiyada ishtirok etishingiz uchun. " . $item->payment_link;
-                    $this->sendSms(998937077371, $textSms);
-                    $textSms2 = "conferences-list.uz - Bugun soat 10:00 da konferensiyani ochilish marosimida ishtitok eting. Zoom: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041. " . $item->payment_link;
-                    $this->sendSms(998937077371, $textSms2);
+                if ($item->phone) {
+                    $textSms = "4-5-mart kunlari konferensiyada ishtirok etishing. Batafsil: https://conferences-list.uz/jadval";
+                    $this->sendSms($item->phone, $textSms);
+                    $textSms2 = "conferences-list.uz - Bugun soat 10:00 da konferensiyaning ochilishida ishtitok eting. Oflayn: TATU, kichik majlislar zali, Onlayn: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041.";
+                    $this->sendSms($item->phone, $textSms2);
                 }
 
             }
