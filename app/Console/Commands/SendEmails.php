@@ -54,9 +54,7 @@ class SendEmails extends Command
                 var_dump('User: ' . $item->email);
 
                 if ($item->phone) {
-                    $textSms = "4-5-mart kunlari konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/jadval";
-                    $this->sendSms($item->phone, $textSms);
-                    $textSms2 = "Bugun soat 10:00 da konferensiyaning ochilishida ishtirok eting. Oflayn: TATU, kichik majlislar zali, Onlayn: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041.";
+                    $textSms2 = "Konferentsiyaning ochilish marosimi davom etmoqda. Zoom: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041.";
                     $this->sendSms($item->phone, $textSms2);
                 }
 
