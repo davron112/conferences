@@ -30,7 +30,7 @@ class BulkToMeeting extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('4-5 mart kunlari konferensiyada onlayn ishtirok etish uchun taklif etamiz. Batafsil ma\'lumot pochtangizga jo\'natilindi. Qo\'shimcha havola http://conferences-list.uz/jadval da.')
+            ->subject('4-5 mart kunlari konferensiyada ishtirok etish uchun taklif etamiz. Batafsil ma\'lumot pochtangizga jo\'natilindi. Qo\'shimcha havola http://conferences-list.uz/jadval da.')
             ->view('emails.request.meeting', ['requestModel' => $this->model]);
     }
 }
