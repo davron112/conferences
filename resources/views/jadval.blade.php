@@ -35,7 +35,7 @@
                 <div class="lgx-inner">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-12">
+                            <div class="col-sm-12 col-md-12 center">
                                 <div class="lgx-about-img">
                                     <img src="assets/img/about-logo.png" alt="about">
                                 </div>
@@ -274,80 +274,6 @@
                                         </tbody>
                                     </table>
                                     <p>&nbsp;</p>
-                                    <table width="584">
-                                        <tbody>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="158">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                            <td width="425">
-                                                <p>&nbsp;</p>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p><strong><u>&nbsp;</u></strong></p>
-                                    <p><strong><u>&nbsp;</u></strong></p>
-                                    <p><strong><u>&nbsp;</u></strong></p>
-                                    <p><strong><u>&nbsp;</u></strong></p>
-                                    <p><strong><u>&nbsp;</u></strong></p>
-                                    <p><strong><u>&nbsp;</u></strong></p>
                                     <p><strong><u>&nbsp;</u></strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>ДАСТУРИЙ ҚЎМИТА ТАРКИБИ:</strong></p>
@@ -622,7 +548,7 @@
                                             <td width="650">
                                                 <p><strong>1-Шўъба. РЕСПУБЛИКА ИЖТИМОИЙ-ИҚТИСОДИЙ МАСАЛАЛАРИНИ ЕЧИШДА АКТ АҲАМИЯТИ</strong></p>
                                                 <p><strong>&nbsp;</strong></p>
-                                                <p><strong>https://us04web.zoom.us/j/73261695450?pwd=YzU4SzN3VDI3RGthQkpJNC92SmtrZz09</strong></p>
+                                                <p><strong><a href="https://us04web.zoom.us/j/73261695450?pwd=YzU4SzN3VDI3RGthQkpJNC92SmtrZz09">https://us04web.zoom.us/j/73261695450?pwd=YzU4SzN3VDI3RGthQkpJNC92SmtrZz09</a></strong></p>
                                                 <p><strong>Идентификатор конференции: 732 6169 5450</strong></p>
                                                 <p><strong>Код доступа: a0GFR5</strong></p>
                                                 <p><strong>&nbsp;</strong></p>
@@ -876,7 +802,7 @@
                                     <p><strong>3-Шўъба. АХБОРОТ ХИЗМАТЛАРИНИ К</strong><strong>ЎРСАТИШ СОҲАСИДА ИНТЕЛЛЕКТУАЛ ТИЗИМЛАР</strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Подключиться к конференции Zoom </strong></p>
-                                    <p>https://us02web.zoom.us/j/4140805634?pwd=U25LN2VQdXVEMUtsMlNHeDBGaUtndz09</p>
+                                    <p><a href="https://us02web.zoom.us/j/4140805634?pwd=U25LN2VQdXVEMUtsMlNHeDBGaUtndz09">https://us02web.zoom.us/j/4140805634?pwd=U25LN2VQdXVEMUtsMlNHeDBGaUtndz09</a></p>
                                     <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Идентификатор конференции: 414 080 5634 </strong></p>
                                     <p><strong>Код доступа: 12345</strong></p>
                                     <p>Раис &ndash;&nbsp; т.ф.н. Кучкоров Т.А.</p>
@@ -1208,7 +1134,7 @@
                                     <p><strong>5-Шўъба. </strong><strong>РАДИОТЕХНИКА, ТЕЛЕРАДИОЭШИТТИРИШ ВА МОБИЛ АЛОҚА ТЕХНОЛОГИЯЛАРИ</strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Подключиться к конференции Zoom</strong></p>
-                                    <p><strong>https://us04web.zoom.us/j/7340325379?pwd=eVhkcXhlSjZiSDE0OVdOdXF6UHBvZz09</strong></p>
+                                    <p><strong><a href="https://us04web.zoom.us/j/7340325379?pwd=eVhkcXhlSjZiSDE0OVdOdXF6UHBvZz09">https://us04web.zoom.us/j/7340325379?pwd=eVhkcXhlSjZiSDE0OVdOdXF6UHBvZz09</a></strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Идентификатор конференции: 734 032 5379</strong></p>
                                     <p><strong>Пароль: 959805</strong></p>
@@ -1424,7 +1350,7 @@
                                     <p><strong>Время: 4 мар. 2021 01:30 PM Исламабад, Карачи, Ташкент</strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Подключиться к конференции Zoom</strong></p>
-                                    <p><strong>https://us04web.zoom.us/j/5545477766?pwd=MmJEdUtRQndGeDArcjdCVTVJdHk5QT09</strong></p>
+                                    <p><strong><a href="https://us04web.zoom.us/j/5545477766?pwd=MmJEdUtRQndGeDArcjdCVTVJdHk5QT09">https://us04web.zoom.us/j/5545477766?pwd=MmJEdUtRQndGeDArcjdCVTVJdHk5QT09</a></strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Идентификатор конференции: 554 547 7766</strong></p>
                                     <p><strong>Код доступа: 12</strong></p>
@@ -1680,7 +1606,7 @@
                                     <p><strong>Время: 4 мар. 2021 02:00 PM Исламабад, Карачи, Ташкент</strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Подключиться к конференции Zoom</strong></p>
-                                    <p><strong>https://us02web.zoom.us/j/82231134743?pwd=WHZlaC9PUXBhSkxYMGRWSjdzM0lMZz09</strong></p>
+                                    <p><strong><a href="https://us02web.zoom.us/j/82231134743?pwd=WHZlaC9PUXBhSkxYMGRWSjdzM0lMZz09">https://us02web.zoom.us/j/82231134743?pwd=WHZlaC9PUXBhSkxYMGRWSjdzM0lMZz09</a></strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>Идентификатор конференции: 822 3113 4743</strong></p>
                                     <p><strong>Код доступа: 566892</strong></p>
@@ -1798,7 +1724,7 @@
                                     </table>
                                     <p><strong>9-Шўъба. </strong><strong>&nbsp;</strong><strong>ЭЛЕКТРОН КУТУБХОНАЛАР ВА АРХИВЛАР</strong></p>
                                     <p><strong>&nbsp;</strong></p>
-                                    <p><strong>https://us04web.zoom.us/j/2900494097?pwd=VUp2WUFWallzenZaWjl5ZmJZSlVWQT09</strong></p>
+                                    <p><strong><a href="https://us04web.zoom.us/j/2900494097?pwd=VUp2WUFWallzenZaWjl5ZmJZSlVWQT09">https://us04web.zoom.us/j/2900494097?pwd=VUp2WUFWallzenZaWjl5ZmJZSlVWQT09</a></strong></p>
                                     <p><strong>&nbsp;</strong></p>
                                     <p><strong>ID: 290 049 4097</strong></p>
                                     <p><strong>&nbsp;</strong></p>
@@ -1920,7 +1846,7 @@
                                     <p><strong>10-Шўъба. РАҚАМЛИ ИҚТИСОДИЁТ</strong></p>
                                     <p>&nbsp;</p>
                                     <p>Подключиться к конференции Zoom</p>
-                                    <p>https://us05web.zoom.us/j/8294160544?pwd=eGUxQ2JrNDcrY2MvYUR6MU9Scnk1Zz09</p>
+                                    <p><a href="https://us05web.zoom.us/j/8294160544?pwd=eGUxQ2JrNDcrY2MvYUR6MU9Scnk1Zz09">https://us05web.zoom.us/j/8294160544?pwd=eGUxQ2JrNDcrY2MvYUR6MU9Scnk1Zz09</a></p>
                                     <p>Идентификатор конференции: 829 416 0544</p>
                                     <p>Код доступа: zMNZ7F</p>
                                     <p>&nbsp;</p>
@@ -2650,7 +2576,7 @@
                                         </tr>
                                         <tr>
                                             <td width="624">
-                                                <h1>6.&nbsp;&nbsp;&nbsp;&nbsp; <em>Хайтбаев А.Ф., Мажидова Г.А. </em>Симсиз сенсор тармоқларда маршрутизация протоколларининг таҳлили</h1>
+                                                <h4>6.&nbsp;&nbsp;&nbsp;&nbsp; <em>Хайтбаев А.Ф., Мажидова Г.А. </em>Симсиз сенсор тармоқларда маршрутизация протоколларининг таҳлили</h4>
                                             </td>
                                         </tr>
                                         <tr>
