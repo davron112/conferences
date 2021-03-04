@@ -7,7 +7,7 @@
 
 <h1>4-5 mart kunlari o'tkaziladigan konferensiyada ishtirok eting</h1>
 <p>
-    Hurmatli {{ $requestModel->username }}({{ $requestModel->authors }}) !<br>
+    Hurmatli {{ $requestModel->username }}&nbsp;({{ $requestModel->authors }}) !<br>
     Sizni 2021 yil 4-5 mart kunlari Muhammad Al-Xorazmiy nomidagi Toshkent axborot texnologiyalari universitetida o'tkaziladigan “Iqtisodiyot tarmoqlarining innovatsion rivojlanishida axborot–kommunikatsiya texnologiyalarining ahamiyati” mavzusiga bag'ishlangan ilmiy-texnik anjumaniga taklif etamiz.<br>
     Konferentsiyaning ochilish marosimi 4 mart kuni soat 1000 da universitet katta majlislar zalida (Zoom orqali) o'tkaziladi.<br>
 </p>
@@ -20,6 +20,7 @@
     Birinchi yalpi majlis vaqti: 10:00 – 12:00<br>
 
     TATU rektori S.N. Babaxodjaevning kirish so'zi<br>
+    Onlayn:<br>
     Majlista Zoom orqali qatnashish uchun quydagi Havolaga uting:
     <a href="https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20">https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20</a>
 
