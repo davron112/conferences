@@ -30,7 +30,12 @@
 </p>
 <p>
     <h2>Asosiy konferensiya</h2>
-    <span style="color: red;">Diqqat: Asosiy konferensiya onlayn turda zoom orqali o'tkazilinadi</span><br>
+    @if($requestModel->category->id == 7)
+        <span style="color: red;">Diqqat: Asosiy konferensiya oflayn turda o'tkazilinadi</span><br>
+        Manzil: Toshkent axborot texnologiyalari universiteti, "Axborot xavfsizligi" kafedrasi, "D" blok 2-qavat, 205 xona
+    @else
+        <span style="color: red;">Diqqat: Asosiy konferensiya onlayn turda zoom orqali o'tkazilinadi</span><br>
+    @endif
     Konferensiyani tinglash uchun ushbu havolaga o'ting <a href="{{ $requestModel->category->meeting_link }}">{{ $requestModel->category->meeting_link }}</a><br>
     {!! $requestModel->category->meeting_info !!}
 </p>

@@ -3518,7 +3518,170 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-
+                                <table width="829">
+                                    <tbody>
+                                    <tr style="height: 355px;">
+                                        <td style="height: 355px;" width="101">
+                                            <p>1- Шўъба.</p>
+                                        </td>
+                                        <td style="height: 355px;" width="728">
+                                            <p>Республика ижтимоий-иқтисодий масалаларини ечишда АКТ аҳамияти</p>
+                                            <p>&nbsp;</p>
+                                            <p>Bahodir Muminov, [03.03.21 14:39]</p>
+                                            <p>Bahodir Muminov приглашает вас на запланированную конференцию: Zoom.</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: Биринчи секция</p>
+                                            <p>Время: Это регулярная конференция Начать в любое время</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us04web.zoom.us/j/73261695450?pwd=YzU4SzN3VDI3RGthQkpJNC92SmtrZz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 732 6169 5450</p>
+                                            <p>Код доступа: a0GFR5</p>
+                                            <p>&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 305px;">
+                                        <td style="height: 305px;" width="101">
+                                            <p>2-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 305px;" width="728">
+                                            <p>Таълим тизимларида ахборот технологиялари</p>
+                                            <p>&nbsp;</p>
+                                            <p>Шахноза Позилова приглашает вас на запланированную конференцию: Zoom.</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: Зал персональной конференции Шахноза Позилова</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us04web.zoom.us/j/4325310180?pwd=RFFMTkozUCtaZGNzaGZ2dXBUN1RJZz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 432 531 0180</p>
+                                            <p>Код доступа: nX131E</p>
+                                            <p>&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 305px;">
+                                        <td style="height: 305px;" width="101">
+                                            <p>3-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 305px;" width="728">
+                                            <p>Ахборот хизматларини кўрсатиш соҳасида интеллектуал тизимлар</p>
+                                            <p>&nbsp;</p>
+                                            <p>Temurbek Kuchkorov приглашает вас на запланированную конференцию: Zoom.</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: Зал персональной конференции Temurbek Kuchkorov</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us02web.zoom.us/j/4140805634?pwd=U25LN2VQdXVEMUtsMlNHeDBGaUtndz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 414 080 5634</p>
+                                            <p>Код доступа: 12345</p>
+                                            <p>&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 256px;">
+                                        <td style="height: 256px;" width="101">
+                                            <p>4-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 256px;" width="728">
+                                            <p>Телекоммуникация тармоқлари ва тизимларининг ривожланиши</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: 4-секция. Телекоммуникация тармоклари ва тизимларининг ривожланиши</p>
+                                            <p>Время: 4 мар. 2021 02:00 PM Исламабад, Карачи, Ташкент</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us02web.zoom.us/j/89887765219?pwd=YzhGdzJmSjR5S0gwcEpSSWNCTnVTUT09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 898 8776 5219</p>
+                                            <p>Код доступа: 395517</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 182px;">
+                                        <td style="height: 182px;" width="101">
+                                            <p>5-Шўъба</p>
+                                        </td>
+                                        <td style="height: 182px;" width="728">
+                                            <p>Радиотехника, телерадиоэшиттириш ва мобил алоқа технологиялари</p>
+                                            <p>Ҳайдар Мадаминов, [01.03.21 15:51]</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us04web.zoom.us/j/7340325379?pwd=eVhkcXhlSjZiSDE0OVdOdXF6UHBvZz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 734 032 5379</p>
+                                            <p>Пароль: 959805</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 281px;">
+                                        <td style="height: 281px;" width="101">
+                                            <p>6-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 281px;" width="728">
+                                            <p>Рақамли телевидения ва&nbsp; кино индустрияси муаммолари</p>
+                                            <p>Абдивали Мухамадиев приглашает вас на запланированную конференцию: Zoom.</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: 6 секция</p>
+                                            <p>Время: 4 мар. 2021 01:30 PM Исламабад, Карачи, Ташкент</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us04web.zoom.us/j/5545477766?pwd=MmJEdUtRQndGeDArcjdCVTVJdHk5QT09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 554 547 7766</p>
+                                            <p>Код доступа: 12</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 76.8px;">
+                                        <td style="height: 76.8px;" width="101">
+                                            <p>7-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 76.8px;" width="728">
+                                            <p>Ахборот хавфсизлигининг замонавий муаммолари<br /><br />Диққат: Асосий конференсия офлайн турда ўтказилинади.<br /><br /> Манзил: Тошкент ахборот технологиялари университети, "Ахборот хавфсизлиги" кафедраси, "Д" блок 2-қават, 205 хона</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 158px;">
+                                        <td style="height: 158px;" width="101">
+                                            <p>8-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 158px;" width="728">
+                                            <p>Дастурий&nbsp; маҳсулотларни яратиш ва унинг истиқболлари</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us02web.zoom.us/j/82231134743?pwd=WHZlaC9PUXBhSkxYMGRWSjdzM0lMZz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 822 3113 4743</p>
+                                            <p>Код доступа: 566892</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 158px;">
+                                        <td style="height: 158px;" width="101">
+                                            <p>9-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 158px;" width="728">
+                                            <p>Электрон кутубхоналар ва архивлар</p>
+                                            <p>https://us04web.zoom.us/j/2900494097?pwd=VUp2WUFWallzenZaWjl5ZmJZSlVWQT09</p>
+                                            <p>&nbsp;</p>
+                                            <p>ID: 290 049 4097</p>
+                                            <p>&nbsp;</p>
+                                            <p>Pass: 005500</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 256px;">
+                                        <td style="height: 256px;" width="101">
+                                            <p>10-Шўъба.</p>
+                                        </td>
+                                        <td style="height: 256px;" width="728">
+                                            <p>Рақамли иқтисодиёт</p>
+                                            <p>Гулнора Исмоилова приглашает вас на запланированную конференцию: Zoom.</p>
+                                            <p>&nbsp;</p>
+                                            <p>Тема: Зал персональной конференции Гулнора Исмоилова</p>
+                                            <p>&nbsp;</p>
+                                            <p>Подключиться к конференции Zoom</p>
+                                            <p>https://us05web.zoom.us/j/8294160544?pwd=eGUxQ2JrNDcrY2MvYUR6MU9Scnk1Zz09</p>
+                                            <p>&nbsp;</p>
+                                            <p>Идентификатор конференции: 829 416 0544</p>
+                                            <p>Код доступа: zMNZ7F</p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p>&nbsp;</p>
                             </div>
                         </div>
                     </div><!-- //.CONTAINER -->
