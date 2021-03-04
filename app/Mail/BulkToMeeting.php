@@ -7,11 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class WarningNotification
- * @package App\Mail
- */
-class WarningNotification extends Mailable
+class BulkToMeeting extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +30,7 @@ class WarningNotification extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('CONFERENCES-LIST.UZ - To\'lovni amalga oshirish to\'g\'risida ogohlantirish')
-            ->view('emails.request.warning', ['requestModel' => $this->model]);
+            ->subject('4-5 mart kunlari konferensiyada onlayn ishtirok etish uchun taklif etamiz. Batafsil ma\'lumot pochtangizga jo\'natilindi. Qo\'shimcha havola http://conferences-list.uz/jadval da.')
+            ->view('emails.request.meeting', ['requestModel' => $this->model]);
     }
 }

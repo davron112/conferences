@@ -22,6 +22,8 @@ class CreateCategoriesTable extends Migration
             $table->string('owner_phone')->nullable();
             $table->string('owner_email')->nullable();
             $table->string('address')->nullable();
+            $table->text('meeting_link')->nullable();
+            $table->longText('meeting_info')->nullable();
             $table->unsignedBigInteger('conference_id');
             $table->foreign('conference_id')->references('id')->on('conferences');
             $table->timestamps();

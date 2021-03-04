@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\BulkToMeeting;
 use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedAdmin;
 use App\Mail\RequestCreatedClient;
@@ -46,13 +47,14 @@ class SendEmails extends Command
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
             $statusChanged = false;
-            if ($item->status == Request::STATUS_APPROVED && $item->payment_status == Request::PAYMENT_STATUS_SENT) {
+            if ($item->status == Request::STATUS_APPROVED) {
                 Mail::to($item->email)
-                    ->send(new WarningNotification($item));
+                    ->send(new BulkToMeeting($item));
+                var_dump('Konferensiya: ' . $item->id);
                 var_dump('User: ' . $item->email);
 
                 if ($item->phone) {
-                    $textSms = "conferences-list.uz #" . $item->id . " to'lovlarni qabul qilish yakunlanmoqda, to'lov havolasi. " . $item->payment_link;
+                    $textSms = "conferences-list.uz #" . $item->id . " 4-5-mart kunlari konferensiyada ishtirok etishingiz uchun. " . $item->payment_link;
                     $this->sendSms($item->phone, $textSms);
                 }
 

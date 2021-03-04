@@ -31,6 +31,8 @@ class Conference extends Model implements Transformable
         'address', 'phone',
         'email',
         'organization',
+        'meeting_link',
+        'meeting_info',
         'payment_account'
     ];
 

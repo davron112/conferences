@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head -->
 
     <!-- SITE TITLE -->
-    <title>Emeet</title>
+    <title>Konferensiyalar</title>
     <meta name="description" content="Ilmiy konferensiyalar, tezislar va maqolalar"/>
     <meta name="keywords" content="Ilmiy konferensiyalar, tezislar, maqolalar"/>
     <meta name="author" content="conferences-list.uz"/>
@@ -121,7 +121,7 @@
                             </div>
                             <ul class="nav navbar-nav lgx-nav navbar-right">
                                 <li><a class="lgx-scroll" href="#lgx-speakers">Ishtirokchilar</a></li>
-                                <li><a class="lgx-scroll" href="#lgx-schedule">Konferensiya jadvali</a></li>
+                                <li><a class="lgx-scroll" href="/jadval">Konferensiya jadvali</a></li>
                                 <li><a class="lgx-scroll" href="#lgx-sponsors">Homiylar</a></li>
                                 <li><a class="lgx-scroll" href="/about">Batafsil</a></li>
                                 <li><a class="lgx-scroll" href="#lgx-travelinfo">Bog'lanish uchun</a></li>

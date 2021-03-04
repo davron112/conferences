@@ -69,6 +69,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function jadval()
+    {
+        return view('jadval');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function registration()
     {
         return view('registration', [
