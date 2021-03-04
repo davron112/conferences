@@ -55,7 +55,7 @@
                                                 lgx-zoomInRight lgx-zoomInUp-->
                                                 <div class="lgx-banner-info"> <!--lgx-banner-info-center lgx-banner-info-black lgx-banner-info-big lgx-banner-info-bg--> <!--banner-info-margin-->
                                                     <div class="lgx-cart-area">
-                                                        <a class="lgx-btn lgx-btn-red" href="#">Batafsil ma'lumot olish</a>
+                                                        <a class="lgx-btn lgx-btn-red" href="/jadval">Batafsil ma'lumot olish</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                     </ul>
                                     <div class="section-btn-area">
                                         <a class="lgx-btn" href="/about">Batafsil</a>
-                                        <a class="lgx-btn lgx-btn-red lgx-scroll" href="/registration">Ishtirok etish</a>
+                                        <a class="lgx-btn lgx-btn-red lgx-scroll" href="/jadval">Ishtirok etish</a>
                                     </div>
                                 </div>
                             </div>

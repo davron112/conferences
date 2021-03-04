@@ -35,12 +35,12 @@
                 <div class="lgx-inner">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-5">
+                            <div class="col-sm-12 col-md-12">
                                 <div class="lgx-about-img">
                                     <img src="assets/img/about-logo.png" alt="about">
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-7">
+                            <div class="col-sm-12 col-md-12">
                                 <div class="lgx-about-content-area">
                                     <div class="lgx-heading">
                                         <h3>Iqtisodiyotning tarmoqlarini innovatsion rivojlanishida axborot-kommunikatsiya texnologiyalarining ahamiyati</h3>

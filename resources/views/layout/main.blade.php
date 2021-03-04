@@ -116,7 +116,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <div class="lgx-nav-right navbar-right">
                                 <div class="lgx-cart-area">
-                                    <a class="lgx-btn lgx-btn-red" href="/registration">Ishtirok etish</a>
+                                    <a class="lgx-btn lgx-btn-red" href="/jadval">Ishtirok etish</a>
                                 </div>
                             </div>
                             <ul class="nav navbar-nav lgx-nav navbar-right">
