@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\Bulk;
 use App\Mail\BulkToMeeting;
 use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedAdmin;
@@ -46,15 +47,17 @@ class SendEmails extends Command
     {
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
-            $statusChanged = false;
-            if ($item->status == Request::STATUS_APPROVED) {
+            if ($item->status == Request::STATUS_APPROVED && $item->id == 8) {
+
+                $text = "<p>Sizga ushbu onlayn konferensiya havolasi(linki) o'zgarganini ma'lum qilamiz. Yangi link quyida ko'rsatilingan.<br><strong>Seksiya</strong>:&nbsp;8<br /><strong>Mavzu</strong>: Dasturiy mahsulotlarni yaratish va uning istiqbollari<br /><strong>Vaqti</strong>: 5 mart. 2021 09:00 AM Toshkent<br /><br /><strong>Zoom konferensiyaga ulanish linki:</strong><br /><a href='https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09'>https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09</a></p>
+<p><strong>ID zoom</strong>: 822 3113 4743<br /><strong>Kirish kodi</strong>: 123456</p>";
                 Mail::to($item->email)
-                    ->send(new BulkToMeeting($item));
+                    ->send(new Bulk($text));
                 var_dump('Konferensiya: ' . $item->id);
                 var_dump('User: ' . $item->email);
 
                 if ($item->phone) {
-                    $textSms2 = "Konferentsiyaning ochilish marosimi davom etmoqda. Zoom: https://us02web.zoom.us/j/83914614041?pwd=YkVnNlpxblp5ems2eklvbU43SWNFQT09%20 Kirish kodi: 764643 ID zoom: 83914614041.";
+                    $textSms2 = "Onlayn konferensiya linki o'zgardi. Zoom: https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09 Kirish kodi: 123456 ID zoom: 82231134743.";
                     $this->sendSms($item->phone, $textSms2);
                 }
 
