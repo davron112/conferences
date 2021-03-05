@@ -47,13 +47,14 @@ class SendEmails extends Command
     {
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
-            if ($item->status == Request::STATUS_APPROVED && $item->id == 8) {
+            if ($item->status == Request::STATUS_APPROVED && $item->category->id == 8) {
 
                 $text = "<p>Sizga ushbu onlayn konferensiya havolasi(linki) o'zgarganini ma'lum qilamiz. Yangi link quyida ko'rsatilingan.<br><strong>Seksiya</strong>:&nbsp;8<br /><strong>Mavzu</strong>: Dasturiy mahsulotlarni yaratish va uning istiqbollari<br /><strong>Vaqti</strong>: 5 mart. 2021 09:00 AM Toshkent<br /><br /><strong>Zoom konferensiyaga ulanish linki:</strong><br /><a href='https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09'>https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09</a></p>
 <p><strong>ID zoom</strong>: 822 3113 4743<br /><strong>Kirish kodi</strong>: 123456</p>";
                 Mail::to($item->email)
                     ->send(new Bulk($text));
-                var_dump('Konferensiya: ' . $item->id);
+                var_dump('Request: ' . $item->id);
+                var_dump('Konferensiya: ' . $item->category->id);
                 var_dump('User: ' . $item->email);
 
                 if ($item->phone) {
