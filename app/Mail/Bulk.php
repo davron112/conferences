@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -31,6 +30,6 @@ class Bulk extends Mailable
     {
         return $this->from('conferenceslistuz@gmail.com')
             ->subject('CONFERENCES-LIST.UZ - Yangi xabar!')
-            ->view('emails.request.meeting', ['text' => $this->text]);
+            ->view('emails.request.bulk', ['text' => $this->text]);
     }
 }
