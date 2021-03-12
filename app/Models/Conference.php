@@ -28,12 +28,20 @@ class Conference extends Model implements Transformable
         'subject',
         'description',
         'additional_files',
-        'address', 'phone',
+        'address',
+        'phone',
         'email',
         'organization',
         'meeting_link',
         'meeting_info',
         'payment_account'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categories() {
+        return $this->hasMany(Category::class, 'conference_id', 'id');
+    }
 
 }

@@ -27,6 +27,10 @@ Route::get('/v1/conferences/{id}', [
     \App\Http\Controllers\Api\v1\ConferencesController::class, 'show'
 ]);
 // site
+Route::get('/v1/categories/conference/{id}', [
+    \App\Http\Controllers\Api\v1\ConferencesController::class, 'categories'
+]);
+// site
 Route::post('/v1/request/create', [
     \App\Http\Controllers\Api\v1\RequestsController::class, 'store'
 ]);

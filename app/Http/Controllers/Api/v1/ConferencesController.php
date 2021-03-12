@@ -62,4 +62,15 @@ class ConferencesController extends Controller
 
         return response()->json($conference);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function categories($id)
+    {
+        $categories = $this->repository->where('conferences_id', $id)->get();
+
+        return response()->json($categories);
+    }
 }
