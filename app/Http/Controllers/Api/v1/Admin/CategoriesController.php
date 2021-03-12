@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
