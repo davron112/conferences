@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Repositories\Contracts\ConferenceRepository;
 use App\Validators\RequestValidator;
 
@@ -69,7 +70,7 @@ class ConferencesController extends Controller
      */
     public function categories($id)
     {
-        $categories = $this->repository->where('conferences_id', $id)->get();
+        $categories = Category::where('conferences_id', $id)->get();
 
         return response()->json($categories);
     }
