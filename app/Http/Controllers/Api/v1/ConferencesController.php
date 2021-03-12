@@ -70,7 +70,7 @@ class ConferencesController extends Controller
      */
     public function categories($id)
     {
-        $categories = Category::where('conferences_id', $id)->get();
+        $categories = Category::where('conference_id', $id)->get();
 
         return response()->json($categories);
     }
