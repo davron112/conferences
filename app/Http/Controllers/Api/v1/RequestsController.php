@@ -129,7 +129,7 @@ class RequestsController extends Controller
             $requestModel->save();
             Mail::to($requestModel->email)
                 ->send(new RequestCreatedClient($requestModel));
-            SmsSend::sendSms($requestModel->phone, "Maqolangiz tasdiqlandi. conferences-list.uz");
+            SmsSend::sendSms(preg_replace('#[^\d]#', '', $requestModel->phone), "Maqolangiz tasdiqlandi. conferences-list.uz");
             return response()->json([
                 'message' => 'Muoffaqiyatli tasdiqlandi.',
                 'status' => true,
