@@ -13,6 +13,7 @@ use Illuminate\Http\Request as HttpRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Repositories\Contracts\RequestRepository;
@@ -80,13 +81,11 @@ class RequestsController extends Controller
             }
             $otp_code = rand(5,5);
             $data['otp_code'] = $otp_code;
-            $data['otp_session'] = md5(rand(1, 9));
+            $data['otp_session'] = Str::random(8);
             $data['status'] = Request::STATUS_PENDING;
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $requestModel = $this->repository->create($data);
-
-
 
            /* Mail::to($requestModel->category->owner_email)
                 ->send(new RequestCreatedAdmin($requestModel));
@@ -102,7 +101,7 @@ class RequestsController extends Controller
             Mail::to($requestModel->email)
                 ->send(new CustomMessage($textMail));
 
-            SmsSend::sendSms($requestModel->phone, $textSms);
+            SmsSend::sendSms(preg_replace('#[^\d]#', '', $requestModel->phone), $textSms);
 
             $response = [
                 'message' => 'Tasdiqlash kodi sms yoki email orqali jo\'natilindi. Maqolangiz qabul qilinishi uchun uni tasdiqlashingiz kerak.',
@@ -120,6 +119,7 @@ class RequestsController extends Controller
     }
 
     public function checkOtp(HttpRequest $request) {
+        dd(232321313);
         $data = $request->all();
         $requestModel = $this->repository->find($data['id']);
         if ($requestModel->otp_code == $data['otp_code']

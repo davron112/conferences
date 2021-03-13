@@ -57,6 +57,7 @@ class Request extends Model implements Transformable
         'file',
         'hash',
         'otp_code',
+        'otp_session',
         'answer_text'
     ];
 
