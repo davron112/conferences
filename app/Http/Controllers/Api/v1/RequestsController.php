@@ -108,7 +108,7 @@ class RequestsController extends Controller
                 'data' => [
                     'id'    => $requestModel->id,
                     'otp_session'    => $requestModel->otp_session,
-                    'email'    => '**********'. substr($requestModel->email, -5),
+                    'email'    => '**********'. substr($requestModel->email, -6),
                     'phone'    => '**********'. substr($requestModel->phone, -4),
                 ]
             ];
@@ -123,7 +123,7 @@ class RequestsController extends Controller
         $data = $request->all();
         $requestModel = $this->repository->find($data['id']);
         if ($requestModel->otp_code == $data['otp_code']
-            && $requestModel->otp_code == $data['otp_session']
+            && $requestModel->otp_session == $data['otp_session']
         ) {
             $requestModel->status = Request::STATUS_NEW;
             $requestModel->save();
