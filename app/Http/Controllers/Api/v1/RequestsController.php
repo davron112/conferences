@@ -119,7 +119,6 @@ class RequestsController extends Controller
     }
 
     public function checkOtp(HttpRequest $request) {
-        dd(232321313);
         $data = $request->all();
         $requestModel = $this->repository->find($data['id']);
         if ($requestModel->otp_code == $data['otp_code']
