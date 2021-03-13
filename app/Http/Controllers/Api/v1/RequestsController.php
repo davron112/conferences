@@ -106,6 +106,7 @@ class RequestsController extends Controller
             $response = [
                 'message' => 'Tasdiqlash kodi sms yoki email orqali jo\'natilindi. Maqolangiz qabul qilinishi uchun uni tasdiqlashingiz kerak.',
                 'data' => [
+                    'id'    => $requestModel->id,
                     'otp_session'    => $requestModel->otp_session,
                     'email'    => '**********'. substr($requestModel->email, -5),
                     'phone'    => '**********'. substr($requestModel->phone, -4),
