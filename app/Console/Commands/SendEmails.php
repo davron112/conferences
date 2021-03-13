@@ -2,15 +2,12 @@
 
 namespace App\Console\Commands;
 
-use App\Mail\Bulk;
-use App\Mail\BulkToMeeting;
-use App\Mail\CustomMessage;
-use App\Mail\RequestCreatedAdmin;
-use App\Mail\RequestCreatedClient;
-use App\Mail\WarningNotification;
+
 use App\Models\Request;
+use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class SendEmails extends Command
 {
@@ -47,34 +44,16 @@ class SendEmails extends Command
     {
         $userRequests = Request::all();
         foreach ($userRequests as $item) {
-            if ($item->status == Request::STATUS_APPROVED && $item->category->id == 8) {
+            $user = User::updateOrCreate([
+                'email' => $item->email
+            ], [
+                'phone' => $item->phone,
+                'role' => 'USER',
+                'password' => Hash::make(Str::random(8))
+            ]);
 
-                $text = "<p>Sizga ushbu onlayn konferensiya havolasi(linki) o'zgarganini ma'lum qilamiz. Yangi link quyida ko'rsatilingan.<br><strong>Seksiya</strong>:&nbsp;8<br /><strong>Mavzu</strong>: Dasturiy mahsulotlarni yaratish va uning istiqbollari<br /><strong>Vaqti</strong>: 5 mart. 2021 09:00 AM Toshkent<br /><br /><strong>Zoom konferensiyaga ulanish linki:</strong><br /><a href='https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09'>https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09</a></p>
-<p><strong>ID zoom</strong>: 822 3113 4743<br /><strong>Kirish kodi</strong>: 123456</p>";
-                Mail::to($item->email)
-                    ->send(new Bulk($text));
-                var_dump('Request: ' . $item->id);
-                var_dump('Konferensiya: ' . $item->category->id);
-                var_dump('User: ' . $item->email);
-
-                if ($item->phone) {
-                    $textSms2 = "Onlayn konferensiya linki o'zgardi. Zoom: https://us02web.zoom.us/j/82231134743?pwd=dnJ2SFAwTmR0azhwYXFtTHZIbS93UT09 Kirish kodi: 123456 ID zoom: 82231134743.";
-                    $this->sendSms($item->phone, $textSms2);
-                }
-
-            }
-            /*if ($item->send_owner == 0) {
-                Mail::to($item->category->owner_email)
-                    ->send(new RequestCreatedAdmin($item));
-                var_dump('Owner: ' . $item->category->owner_email);
-                $statusChanged = true;
-                $item->send_owner = 1;
-
-            }*/
-
-            /*if ($statusChanged) {
-                $item->save();
-            }*/
+            $item->user_id = $user->id;
+            $item->save();
         }
     }
 

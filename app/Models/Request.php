@@ -15,6 +15,8 @@ class Request extends Model implements Transformable
 {
     use TransformableTrait;
 
+    const STATUS_PENDING = 'PENDING';
+
     const STATUS_NEW = 'NEW';
 
     const STATUS_APPROVED = 'ACCEPTED';
@@ -54,6 +56,7 @@ class Request extends Model implements Transformable
         'subject',
         'file',
         'hash',
+        'otp_code',
         'answer_text'
     ];
 

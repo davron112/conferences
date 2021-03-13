@@ -34,8 +34,18 @@ Route::get('/v1/categories/conference/{id}', [
 Route::post('/v1/request/create', [
     \App\Http\Controllers\Api\v1\RequestsController::class, 'store'
 ]);
+// site
+Route::post('/v1/request/check-otp', [
+    \App\Http\Controllers\Api\v1\RequestsController::class, 'checkOtp'
+]);
 
 //admin
+Route::middleware('auth:api')->get('/v1/admin/conferences', [\App\Http\Controllers\Api\v1\Admin\ConferencesController::class, 'index']);
+Route::middleware('auth:api')->get('/v1/admin/conferences/{id}', [\App\Http\Controllers\Api\v1\Admin\ConferencesController::class, 'show']);
+
+Route::middleware('auth:api')->get('/v1/admin/users', [\App\Http\Controllers\Api\v1\Admin\UsersController::class, 'index']);
+Route::middleware('auth:api')->get('/v1/admin/users/{id}', [\App\Http\Controllers\Api\v1\Admin\UsersController::class, 'show']);
+
 Route::middleware('auth:api')->get('/v1/requests', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'index']);
 Route::middleware('auth:api')->post('/v1/requests/fail', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'fail']);
 Route::middleware('auth:api')->post('/v1/requests/re-upload', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'reUploadMessage']);

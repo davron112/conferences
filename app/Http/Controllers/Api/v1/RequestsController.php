@@ -6,6 +6,8 @@ use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCreateRequest;
 use App\Mail\RequestCreatedClient;
+use App\Models\Request;
+use Illuminate\Http\Request as HttpRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
@@ -74,6 +76,9 @@ class RequestsController extends Controller
             if ($uploadedImage) {
                 $data['file'] = $this->fileHelper->upload($uploadedImage, 'files');
             }
+            $data['otp_code'] = rand(5,5);
+            $data['otp_session'] = md5(rand(1, 9));
+            $data['status'] = Request::STATUS_PENDING;
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $requestModel = $this->repository->create($data);
@@ -87,13 +92,39 @@ class RequestsController extends Controller
             $requestModel->send_user = 1;
             $requestModel->save();
             $response = [
-                'message' => 'Sizning maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
-                'data'    => $requestModel->toArray(),
+                'message' => 'Tasdiqlash kodi sms yoki email orqali jo\'natilindi. Maqolangiz qabul qilinishi uchun uni tasdiqlashingiz kerak.',
+                'data' => [
+                    'otp_code'    => $requestModel->otp_session,
+                    'email'    => '**********'. substr($requestModel->email, -5),
+                    'phone'    => '**********'. substr($requestModel->phone, -4),
+                ]
             ];
 
             return response()->json($response);
         } catch (ValidatorException $e) {
             return response()->json(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function checkOtp(HttpRequest $request) {
+        $data = $request->all();
+        $requestModel = $this->repository->find($data['id']);
+        if ($requestModel->otp_code == $data['otp_code']
+            && $requestModel->otp_code == $data['otp_session']
+        ) {
+            $requestModel->status = Request::STATUS_NEW;
+            $requestModel->save();
+
+            return response()->json([
+                'message' => 'Muoffaqiyatli tasdiqlandi.',
+                'status' => true,
+                'data' => $requestModel
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Tasdiqlash kodi noto\'g\'ri',
+                'status' => false
+            ]);
         }
     }
 }
