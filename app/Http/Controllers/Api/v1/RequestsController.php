@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Helpers\FileHelper;
+use App\Helpers\SmsSend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCreateRequest;
+use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedClient;
 use App\Models\Request;
 use Illuminate\Http\Request as HttpRequest;
@@ -76,25 +78,36 @@ class RequestsController extends Controller
             if ($uploadedImage) {
                 $data['file'] = $this->fileHelper->upload($uploadedImage, 'files');
             }
-            $data['otp_code'] = rand(5,5);
+            $otp_code = rand(5,5);
+            $data['otp_code'] = $otp_code;
             $data['otp_session'] = md5(rand(1, 9));
             $data['status'] = Request::STATUS_PENDING;
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $requestModel = $this->repository->create($data);
 
-            Mail::to($requestModel->email)
-                ->send(new RequestCreatedClient($requestModel));
+
 
            /* Mail::to($requestModel->category->owner_email)
                 ->send(new RequestCreatedAdmin($requestModel));
             $requestModel->send_owner = 1;*/
             $requestModel->send_user = 1;
-            $requestModel->save();
+
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+            $textMail= "Tasdiqlash kodi: " . $otp_code . " conferences-list.uz";
+            $textSms= "Tasdiqlash kodi: " . $otp_code . " conferences-list.uz";
+
+            Mail::to($requestModel->email)
+                ->send(new CustomMessage($textMail));
+
+            SmsSend::sendSms($requestModel->phone, $textSms);
+
             $response = [
                 'message' => 'Tasdiqlash kodi sms yoki email orqali jo\'natilindi. Maqolangiz qabul qilinishi uchun uni tasdiqlashingiz kerak.',
                 'data' => [
-                    'otp_code'    => $requestModel->otp_session,
+                    'otp_session'    => $requestModel->otp_session,
                     'email'    => '**********'. substr($requestModel->email, -5),
                     'phone'    => '**********'. substr($requestModel->phone, -4),
                 ]
@@ -114,7 +127,9 @@ class RequestsController extends Controller
         ) {
             $requestModel->status = Request::STATUS_NEW;
             $requestModel->save();
-
+            Mail::to($requestModel->email)
+                ->send(new RequestCreatedClient($requestModel));
+            SmsSend::sendSms($requestModel->phone, "Maqolangiz tasdiqlandi. conferences-list.uz");
             return response()->json([
                 'message' => 'Muoffaqiyatli tasdiqlandi.',
                 'status' => true,
