@@ -79,7 +79,7 @@ class RequestsController extends Controller
             if ($uploadedImage) {
                 $data['file'] = $this->fileHelper->upload($uploadedImage, 'files');
             }
-            $otp_code = rand(5,5);
+            $otp_code = rand(11111, 99999);
             $data['otp_code'] = $otp_code;
             $data['otp_session'] = Str::random(8);
             $data['status'] = Request::STATUS_PENDING;
