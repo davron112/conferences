@@ -47,6 +47,7 @@ class SendEmails extends Command
             $user = User::updateOrCreate([
                 'email' => $item->email
             ], [
+                'name' => $item->username,
                 'phone' => $item->phone,
                 'role' => 'USER',
                 'password' => Hash::make(Str::random(8))
