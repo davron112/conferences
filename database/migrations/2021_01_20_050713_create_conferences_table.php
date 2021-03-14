@@ -22,6 +22,8 @@ class CreateConferencesTable extends Migration
             $table->dateTime('end_date')->nullable();
             $table->dateTime('deadline')->nullable();
             $table->string('subject')->nullable();
+            $table->string('status')->default(\App\Models\Conference::STATUS_PENDING);
+            $table->text('mini_description')->nullable();
             $table->longText('description')->nullable();
             $table->text('additional_files')->nullable();
             $table->text('address')->nullable();

@@ -15,6 +15,11 @@ class Conference extends Model implements Transformable
 {
     use TransformableTrait;
 
+    const STATUS_ACTIVE = 'ACTIVE';
+
+    const STATUS_PENDING = 'PENDING';
+
+    const STATUS_EXPIRE = 'EXPIRE';
     /**
      * The attributes that are mass assignable.
      *
@@ -26,6 +31,8 @@ class Conference extends Model implements Transformable
         'end_date',
         'deadline',
         'subject',
+        'status',
+        'mini_description',
         'description',
         'additional_files',
         'address',
