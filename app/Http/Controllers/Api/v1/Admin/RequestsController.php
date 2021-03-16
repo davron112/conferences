@@ -180,6 +180,39 @@ class RequestsController extends Controller
             ]);
         }
     }
+
+    /**
+     * @param RequestUpdateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function complete(RequestUpdateRequest $request)
+    {
+        try {
+
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+
+            $requestModel = $this->repository->find($id);
+            $requestModel->status = Request::STATUS_COMPLETED;
+            if (!$requestModel->save()) {
+                throw new \Exception('Not saved');
+            }
+
+            $response = [
+                'message' => 'Request updated.',
+                'data'    => $requestModel->toArray(),
+            ];
+
+            return response()->json($response);
+
+        } catch (ValidatorException $e) {
+
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessageBag()
+            ]);
+        }
+    }
     /**
      * @param RequestUpdateRequest $request
      * @return \Illuminate\Http\JsonResponse
