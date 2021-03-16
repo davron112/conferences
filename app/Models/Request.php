@@ -21,6 +21,8 @@ class Request extends Model implements Transformable
 
     const STATUS_APPROVED = 'ACCEPTED';
 
+    const STATUS_COMPLETED = 'COMPLETED';
+
     const STATUS_RE_UPLOAD = 'RE_UPLOAD';
 
     const STATUS_FAIL = 'FAIL';

@@ -104,6 +104,7 @@ class RequestsController extends Controller
             ->paginate($limit);
         $new = Request::where('status', Request::STATUS_NEW)->whereIn('category_id', $catIds)->count();
         $approved = Request::where('status', Request::STATUS_APPROVED)->whereIn('category_id', $catIds)->count();
+        $completed = Request::where('status', Request::STATUS_COMPLETED)->whereIn('category_id', $catIds)->count();
         $not_approved = Request::where('status', Request::STATUS_NOT_APPROVED)->whereIn('category_id', $catIds)->count();
         $fail = Request::where('status', Request::STATUS_FAIL)->whereIn('category_id', $catIds)->count();
         $re_upload = Request::where('status', Request::STATUS_RE_UPLOAD)->whereIn('category_id', $catIds)->count();
@@ -116,6 +117,7 @@ class RequestsController extends Controller
             'counts' => [
                 'new' => $new,
                 'approved' => $approved,
+                'completed' => $completed,
                 'not_approved' => $not_approved,
                 'paid' => $paid,
                 'un_paid' => $un_paid,
