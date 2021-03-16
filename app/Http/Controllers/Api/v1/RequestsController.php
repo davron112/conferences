@@ -81,6 +81,7 @@ class RequestsController extends Controller
             }
             $otp_code = rand(11111, 99999);
             $data['otp_code'] = $otp_code;
+            $data['phone'] = preg_replace('#[^\d]#', '', Arr::get($data, 'phone'));
             $data['otp_session'] = Str::random(8);
             $data['status'] = Request::STATUS_PENDING;
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
