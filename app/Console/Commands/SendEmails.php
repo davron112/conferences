@@ -42,20 +42,14 @@ class SendEmails extends Command
     public function handle()
     {
         $users = User::all();
-        Mail::to('achilov21@yandex.com')
-            ->send(new Bulk());
-
-        if (true) {
-            $this->sendSms(998937077371, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
-        }
-        /*foreach ($users as $user) {
+        foreach ($users as $user) {
             Mail::to($user->email)
                 ->send(new Bulk());
 
             if ($user->phone) {
                 $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
             }
-        }*/
+        }
     }
 
 
