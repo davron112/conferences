@@ -11,14 +11,6 @@ class Bulk extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * CustomMessage constructor.
-     * @param $text
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Build the message.
      *
      * @return $this
