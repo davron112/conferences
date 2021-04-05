@@ -43,8 +43,9 @@ class SendEmails extends Command
     {
         $users = User::all();
         foreach ($users as $user) {
-            Mail::to($user->email)
-                ->send(new Bulk());
+            if ($user->email) {
+                Mail::to($user->email)->send(new Bulk());
+            }
 
             if ($user->phone) {
                 $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
