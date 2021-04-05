@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 
 use App\Mail\Bulk;
-use App\Models\Request;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -45,12 +44,12 @@ class SendEmails extends Command
         $users = User::all();
         foreach ($users as $user) {
             if ($user->email) {
-                Mail::to($user->email)->send(new Bulk());
+                Mail::to(trim($user->email))->send(new Bulk());
                 var_dump('Send mail', $user->email);
             }
 
             if ($user->phone) {
-                $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
+                $this->sendSms(trim($user->phone), 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
                 var_dump('Send sms', $user->phone);
             }
         }
