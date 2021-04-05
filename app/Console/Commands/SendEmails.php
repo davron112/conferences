@@ -46,7 +46,7 @@ class SendEmails extends Command
 
         foreach ($reqs as $item) {
             $user = User::where('email', $item->email)->first();
-            if ($item->phone) {
+            if ($user && $item->phone) {
                 $user->phone = $item->phone;
                 $user->save();
                 var_dump('Saved', $user->phone);
