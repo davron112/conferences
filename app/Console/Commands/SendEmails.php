@@ -42,17 +42,7 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $reqs = Request::all();
-
-        foreach ($reqs as $item) {
-            $user = User::where('email', $item->email)->first();
-            if ($user && $item->phone) {
-                $user->phone = $item->phone;
-                $user->save();
-                var_dump('Saved', $user->phone);
-            }
-        }
-        /*$users = User::all();
+        $users = User::all();
         foreach ($users as $user) {
             if ($user->email) {
                 Mail::to($user->email)->send(new Bulk());
@@ -61,7 +51,7 @@ class SendEmails extends Command
             if ($user->phone) {
                 $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
             }
-        }*/
+        }
     }
 
 
