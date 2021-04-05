@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 
 use App\Mail\Bulk;
+use App\Models\Request;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -41,7 +42,17 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $users = User::all();
+        $reqs = Request::all();
+
+        foreach ($reqs as $item) {
+            $user = User::where('email', $item->email)->first();
+            if ($item->phone) {
+                $user->phone = $item->phone;
+                $user->save();
+                var_dump('Saved', $user->phone);
+            }
+        }
+        /*$users = User::all();
         foreach ($users as $user) {
             if ($user->email) {
                 Mail::to($user->email)->send(new Bulk());
@@ -50,7 +61,7 @@ class SendEmails extends Command
             if ($user->phone) {
                 $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
             }
-        }
+        }*/
     }
 
 
