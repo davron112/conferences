@@ -46,10 +46,12 @@ class SendEmails extends Command
         foreach ($users as $user) {
             if ($user->email) {
                 Mail::to($user->email)->send(new Bulk());
+                var_dump('Send mail', $user->email);
             }
 
             if ($user->phone) {
                 $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
+                var_dump('Send sms', $user->phone);
             }
         }
     }
