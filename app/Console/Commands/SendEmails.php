@@ -3,11 +3,10 @@
 namespace App\Console\Commands;
 
 
-use App\Models\Request;
+use App\Mail\Bulk;
 use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class SendEmails extends Command
 {
@@ -42,20 +41,21 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $userRequests = Request::all();
-        foreach ($userRequests as $item) {
-            $user = User::updateOrCreate([
-                'email' => $item->email
-            ], [
-                'name' => $item->username,
-                'phone' => $item->phone,
-                'role' => 'USER',
-                'password' => Hash::make(Str::random(8))
-            ]);
+        $users = User::all();
+        Mail::to('achilov21@yandex.com')
+            ->send(new Bulk());
 
-            $item->user_id = $user->id;
-            $item->save();
+        if (true) {
+            $this->sendSms(998937077371, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
         }
+        /*foreach ($users as $user) {
+            Mail::to($user->email)
+                ->send(new Bulk());
+
+            if ($user->phone) {
+                $this->sendSms($user->phone, 'Yangi konferensiyada ishtirok eting. Batafsil: https://conferences-list.uz/conferences/2');
+            }
+        }*/
     }
 
 

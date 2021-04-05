@@ -10,15 +10,12 @@ class Bulk extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $text;
-
     /**
      * CustomMessage constructor.
      * @param $text
      */
-    public function __construct($text)
+    public function __construct()
     {
-        $this->text = $text;
     }
 
     /**
@@ -29,7 +26,7 @@ class Bulk extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('CONFERENCES-LIST.UZ - Yangi xabar!')
-            ->view('emails.request.bulk', ['text' => $this->text]);
+            ->subject('CONFERENCES-LIST.UZ - Yangi konferensiya haqida ma\'lumot')
+            ->view('emails.request.yangi');
     }
 }

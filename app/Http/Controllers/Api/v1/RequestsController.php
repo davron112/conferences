@@ -99,10 +99,10 @@ class RequestsController extends Controller
             $textMail= "Tasdiqlash kodi: " . $otp_code . " conferences-list.uz";
             $textSms= "Tasdiqlash kodi: " . $otp_code . " conferences-list.uz";
 
+            SmsSend::sendSms(preg_replace('#[^\d]#', '', $requestModel->phone), $textSms);
             Mail::to($requestModel->email)
                 ->send(new CustomMessage($textMail));
 
-            SmsSend::sendSms(preg_replace('#[^\d]#', '', $requestModel->phone), $textSms);
 
             $response = [
                 'message' => 'Tasdiqlash kodi sms yoki email orqali jo\'natilindi. Maqolangiz qabul qilinishi uchun uni tasdiqlashingiz kerak.',
