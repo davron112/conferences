@@ -18,7 +18,7 @@ class Bulk extends Mailable
     public function build()
     {
         return $this->from('conferenceslistuz@gmail.com')
-            ->subject('CONFERENCES-LIST.UZ - Yangi konferensiya haqida ma\'lumot')
+            ->subject('CONFERENCES-LIST.UZ - 4-5-martdagi konferensiya toplami chiqdi')
             ->view('emails.request.yangi');
     }
 }
