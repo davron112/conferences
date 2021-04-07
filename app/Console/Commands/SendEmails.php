@@ -42,7 +42,7 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $users = Request::groupBy('email')->get();
+        $users = Request::all();
         foreach ($users as $user) {
             if ($user->status == Request::STATUS_COMPLETED || $user->status == Request::STATUS_APPROVED) {
                 Mail::to(trim($user->email))->send(new Bulk());
