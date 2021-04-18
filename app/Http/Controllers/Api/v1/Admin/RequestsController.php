@@ -99,6 +99,7 @@ class RequestsController extends Controller
         $selectedConf = Arr::get($data, 'selectedConf', '');
         $filter = Arr::get($data, 'filterStatus', '');
         $requestsModel = $this->repository
+            ->where('conference_id', $selectedConf)
             ->with('userFiles')
             ->filterByStatus($filter)
             ->whereIn('category_id', $catIds)
