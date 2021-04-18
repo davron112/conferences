@@ -9,6 +9,7 @@ use App\Mail\PaymentMessage;
 use App\Mail\RequestCreatedClient;
 use App\Mail\ReUploadMessage;
 use App\Models\Category;
+use App\Models\Conference;
 use App\Models\Request;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Http\Request as HttpRequest;
@@ -83,7 +84,7 @@ class RequestsController extends Controller
 
         $catIds = [];
 
-        if ($user->email == 'zamira.lars@gmail.com') {
+        if ($user->email == 'zamira.lars@gmail.com' && !Arr::get($data, 'selectedConf')) {
             $cats = $this->categoryRepository->all();
             foreach ($cats as $item) {
                 array_push($catIds, $item->id);
@@ -95,13 +96,19 @@ class RequestsController extends Controller
             }
         }
 
+        $conferences = Conference::all();
+        $selectedConfAll = [];
+        foreach ($conferences as $item) {
+            array_push($selectedConfAll, $item->id);
+        }
+
         $limit = Arr::get($data, 'limit', 20);
-        $selectedConf = Arr::get($data, 'selectedConf', '');
+        $selectedConf = Arr::get($data, 'selectedConf', $selectedConfAll);
         $filter = Arr::get($data, 'filterStatus', '');
         $requestsModel = $this->repository
             ->with('userFiles')
             ->filterByStatus($filter)
-            ->where('conference_id', $selectedConf)
+            ->whereIn('conference_id', [$selectedConf])
             ->whereIn('category_id', $catIds)
             ->paginate($limit);
         $new = Request::where([
