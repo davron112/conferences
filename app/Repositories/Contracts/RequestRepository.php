@@ -18,4 +18,5 @@ interface RequestRepository extends RepositoryInterface
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
     public function filterByStatus($status = '');
+    public function filterByConference($id = '');
 }

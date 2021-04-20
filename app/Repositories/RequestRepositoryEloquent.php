@@ -59,6 +59,19 @@ class RequestRepositoryEloquent extends BaseRepository implements RequestReposit
     }
 
     /**
+     * @param string $status
+     * @return $this
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function filterByConference($id = '')
+    {
+        if ($id) {
+            $this->model->where('conference_id', $id);
+        }
+        return $this;
+    }
+
+    /**
      * @param string $id
      * @return $this
      */
