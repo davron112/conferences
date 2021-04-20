@@ -115,14 +115,14 @@ class RequestsController extends Controller
             ['status', '=', Request::STATUS_NEW],
             ['conference_id', '=', $selectedConf]
         ])->whereIn('category_id', $catIds)->count();
-        $approved = Request::where([['status', '=', Request::STATUS_APPROVED], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $completed = Request::where([['status', '=', Request::STATUS_COMPLETED], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $not_approved = Request::where([['status', '=', Request::STATUS_NOT_APPROVED], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $fail = Request::where([['status', '=', Request::STATUS_FAIL], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $re_upload = Request::where([['status', '=', Request::STATUS_RE_UPLOAD], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $paid = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_PAID], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $un_paid = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_UNPAID], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
-        $sent = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_SENT], $selectedConf ? ['conference_id', '=', $selectedConf] : []])->whereIn('category_id', $catIds)->count();
+        $approved = Request::where([['status', '=', Request::STATUS_APPROVED], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $completed = Request::where([['status', '=', Request::STATUS_COMPLETED], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $not_approved = Request::where([['status', '=', Request::STATUS_NOT_APPROVED], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $fail = Request::where([['status', '=', Request::STATUS_FAIL], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $re_upload = Request::where([['status', '=', Request::STATUS_RE_UPLOAD], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $paid = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_PAID], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $un_paid = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_UNPAID], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
+        $sent = Request::where([['payment_status', '=', Request::PAYMENT_STATUS_SENT], ['conference_id', '=', $selectedConf]])->whereIn('category_id', $catIds)->count();
 
         return response()->json([
             'data' => $requestsModel,
