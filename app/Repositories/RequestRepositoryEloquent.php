@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Criteria\ConferenceCriteria;
 use App\Repositories\Criteria\StatusesCreteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -66,7 +67,8 @@ class RequestRepositoryEloquent extends BaseRepository implements RequestReposit
     public function filterByConference($id = '')
     {
         if ($id) {
-            $this->model->where('conference_id', $id);
+            $this->conference_id = $id;
+            $this->pushCriteria(app(ConferenceCriteria::class));
         }
         return $this;
     }
