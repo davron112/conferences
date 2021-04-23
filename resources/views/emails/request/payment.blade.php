@@ -9,7 +9,7 @@
 
 <p>
     Assalomu aleykum. Tabriklaymiz sizning #{{ $requestModel->id }} raqamli maqolangiz qabul qilindi! <br>
-    Anjumanda qatnashish uchun 50 ming so'm hajmdagi summani to'lashingizni so'raymiz.<br>
+    Anjumanda qatnashish uchun 30 ming so'm hajmdagi summani to'lashingizni so'raymiz.<br>
     <br>
     Maqola mavzusi: {{ $requestModel->username }}<br>
     Maqola mavzusi: {{ $requestModel->subject }}<br>

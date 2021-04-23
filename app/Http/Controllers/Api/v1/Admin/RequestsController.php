@@ -376,7 +376,10 @@ class RequestsController extends Controller
             $id = Arr::get($data, 'id');
             $text = Arr::get($data, 'text');
             $requestModel = $this->repository->find($id);
-
+            if (!$requestModel->hash) {
+                $requestModel->hash = md5(rand(1, 9999999));
+                $requestModel->save();
+            }
             Mail::to($requestModel->email)
                 ->send(new ReUploadMessage($requestModel, $text));
 
