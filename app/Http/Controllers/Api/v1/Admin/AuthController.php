@@ -2,11 +2,16 @@
 namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CustomMessage;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Log\Logger;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 /**
  * Class AuthController
@@ -62,7 +67,7 @@ class AuthController extends Controller
                 'about'=> 'Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw brownie brownie marshmallow.',
                 'photoURL' => 'https://static.vecteezy.com/system/resources/thumbnails/000/550/980/small/user_icon_001.jpg', // From Auth
                 'status' => $user->email,
-                'userRole' => 'admin'
+                'userRole' => $user->role
             ];
             $success['accessToken'] =  $user->createToken('MyApp')->accessToken;
             return response()->json($success);
@@ -72,6 +77,22 @@ class AuthController extends Controller
                 ['message' => 'Unauthorised', 'status' => 'error']
             , 200);
         }
+    }
+
+    public function sendLoginOtp(Request $request) {
+        $data = $request->all();
+        $email = Arr::get($data, 'email');
+        $otpCode = Str::random(8);
+
+        $user = User::firstOrCreate(['email' => $email], [
+            'name' => Str::random(8),
+            'status' => 'ACTIVE',
+            'password' => Hash::make($otpCode)
+        ]);
+
+        $textMail= "Siz conferences-list.uz saytidan ro'yxatdan o'tdingiz. Maxfiy parolingiz: : " . $otpCode . " . Kodni hech kimga jo'natmang! conferences-list.uz";
+        Mail::to($user->email)
+            ->send(new CustomMessage($textMail));
     }
 
     /**
