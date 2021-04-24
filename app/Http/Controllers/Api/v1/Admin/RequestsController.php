@@ -152,6 +152,7 @@ class RequestsController extends Controller
 
         $requestsModel = $this->repository
             ->where('email', trim($authUser->email))
+            ->with('userFiles')
             ->get();
 
         return response()->json($requestsModel);
