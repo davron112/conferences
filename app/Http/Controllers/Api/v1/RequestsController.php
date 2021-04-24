@@ -13,6 +13,7 @@ use App\Models\UserFile;
 use Illuminate\Http\Request as HttpRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Prettus\Validator\Contracts\ValidatorInterface;
@@ -129,9 +130,13 @@ class RequestsController extends Controller
     public function reUpload(RequestCreateRequest $request)
     {
         try {
+            $user = Auth::user();
             $data = $request->all();
             $id = Arr::get($data, 'id');
             $requestModel = $this->repository->find($id);
+            if (trim($user->email) != trim($requestModel->email)) {
+                return response()->json(['type' => 'error', 'message' => 'Auth email error']);
+            }
             $uploadedImage = Arr::get($data, 'file');
             $data['version'] = Arr::get($data, 'version', rand(1, 999));
             $data['type'] = 'FILE';
