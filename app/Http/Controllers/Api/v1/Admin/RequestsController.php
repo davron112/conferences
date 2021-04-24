@@ -25,7 +25,7 @@ use App\Validators\RequestValidator;
 
 /**
  * Class RequestsController
- * @package App\Http\Controllers\Api\v1
+ * @package App\Http\Controllers\Api\v1\Admin
  */
 class RequestsController extends Controller
 {
@@ -137,6 +137,24 @@ class RequestsController extends Controller
                 'sent' => $sent,
             ],
         ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param HttpRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function userRequests(HttpRequest $request)
+    {
+        $authUser = Auth::user();
+
+        $requestsModel = $this->repository
+            ->where('email', trim($authUser->email))
+            ->all();
+
+        return response()->json($requestsModel);
     }
 
     /**
