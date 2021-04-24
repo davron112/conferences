@@ -9,6 +9,7 @@ use App\Http\Requests\RequestCreateRequest;
 use App\Mail\CustomMessage;
 use App\Mail\RequestCreatedClient;
 use App\Models\Request;
+use App\Models\UserFile;
 use Illuminate\Http\Request as HttpRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Support\Arr;
@@ -117,6 +118,39 @@ class RequestsController extends Controller
             return response()->json($response);
         } catch (ValidatorException $e) {
             return response()->json(['error' => $e->getMessage()]);
+        }
+    }
+
+
+    /**
+     * @param RequestCreateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function reUpload(RequestCreateRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $id = Arr::get($data, 'id');
+            $requestModel = $this->repository->find($id);
+            $uploadedImage = Arr::get($data, 'file');
+            $data['version'] = Arr::get($data, 'version', rand(1, 999));
+            $data['type'] = 'FILE';
+            $data['request_id'] = $requestModel->id;
+
+            if ($uploadedImage) {
+                $data['file_path'] = $this->fileHelper->upload($uploadedImage, 'files');
+            }
+
+            $fileData = UserFile::create($data);
+
+            $response = [
+                'message' => 'Sizning #' . $requestModel->id . ' raqamli maqolangiz qayta ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
+                'type'    => 'success',
+                'data'    => $fileData->toArray(),
+            ];
+            return response()->json($response);
+        } catch (ValidatorException $e) {
+            return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
         }
     }
 

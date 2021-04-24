@@ -48,6 +48,7 @@ Route::middleware('auth:api')->get('/v1/admin/users/{id}', [\App\Http\Controller
 
 Route::post('/v1/login-otp', [\App\Http\Controllers\Api\v1\Admin\AuthController::class, 'sendLoginOtp']);
 Route::middleware('auth:api')->get('/v1/user/requests', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'userRequests']);
+Route::middleware('auth:api')->post('/v1/user/re-upload', [\App\Http\Controllers\Api\v1\RequestsController::class, 'reUpload']);
 Route::middleware('auth:api')->get('/v1/requests', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'index']);
 Route::middleware('auth:api')->post('/v1/requests/fail', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'fail']);
 Route::middleware('auth:api')->post('/v1/requests/re-upload', [\App\Http\Controllers\Api\v1\Admin\RequestsController::class, 'reUploadMessage']);

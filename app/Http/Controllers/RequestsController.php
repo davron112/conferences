@@ -119,51 +119,6 @@ class RequestsController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  RequestCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
-    public function reUpload(RequestCreateRequest $request)
-    {
-        try {
-            $data = $request->all();
-            if ($request->isMethod('GET')) {
-                return view('change');
-            }
-            $hash = Arr::get($data, 'hash');
-            $requestModel = \App\Models\Request::where('hash', $hash)->first();
-            $uploadedImage = Arr::get($data, 'file');
-            $data['version'] = Arr::get($data, 'version', rand(1, 999));
-            $data['type'] = 'FILE';
-            $data['request_id'] = $requestModel->id;
-
-            if ($uploadedImage) {
-                $data['file_path'] = $this->fileHelper->upload($uploadedImage, 'files');
-            }
-
-            $fileData = UserFile::create($data);
-
-            /*Mail::to($fileData->email)
-                ->send(new RequestCreatedClient($requestModel));
-
-            Mail::to($requestModel->category->owner_email)
-                ->send(new RequestCreatedAdmin($requestModel));*/
-
-            $response = [
-                'message' => 'Sizning #' . $requestModel->id . ' raqamli maqolangiz ko\'rib chiqish uchun qabullandi. Javob xabarini email orqali olasiz.',
-                'data'    => $fileData->toArray(),
-            ];
-
-            return view('change', $response);
-        } catch (ValidatorException $e) {
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
-    }
 
     /**
      * Display the specified resource.
