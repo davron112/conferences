@@ -152,7 +152,7 @@ class RequestsController extends Controller
 
         $requestsModel = $this->repository
             ->where('email', trim($authUser->email))
-            ->all();
+            ->get();
 
         return response()->json($requestsModel);
     }
