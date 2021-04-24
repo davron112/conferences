@@ -84,7 +84,7 @@ class AuthController extends Controller
         $email = Arr::get($data, 'email');
         $otpCode = Str::random(8);
 
-        $user = User::updateOrCreate(['email' => $email], [
+        $user = User::createOrUpdate(['email' => $email], [
             'name' => Str::random(8),
             'status' => 'ACTIVE',
             'password' => Hash::make($otpCode)
