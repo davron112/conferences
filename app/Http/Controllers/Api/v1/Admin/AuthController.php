@@ -93,6 +93,9 @@ class AuthController extends Controller
         $textMail= "Siz conferences-list.uz saytidan ro'yxatdan o'tdingiz. Maxfiy parolingiz: : " . $otpCode . " . Kodni hech kimga jo'natmang! conferences-list.uz";
         Mail::to($user->email)
             ->send(new CustomMessage($textMail));
+        return response()->json([
+            'message' => 'Kod pochtangizga jo\'natilindi'
+        ]);
     }
 
     /**
