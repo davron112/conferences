@@ -94,7 +94,7 @@ class AuthController extends Controller
         $user->password = $passHash;
         $user->save();
 
-        $textMail= "Siz conferences-list.uz saytidan ro'yxatdan o'tdingiz. <br>Maxfiy parolingiz: <b>" . $otpCode . "</b> .<br> Kodni hech kimga jo'natmang! conferences-list.uz";
+        $textMail= "Siz conferences-list.uz saytidan ro'yxatdan o'tdingiz. <br>Maxfiy parolingiz: <b>" . $otpCode . "</b><br> Kodni hech kimga jo'natmang! conferences-list.uz";
         Mail::to($user->email)
             ->send(new CustomMessage($textMail));
         return response()->json([
