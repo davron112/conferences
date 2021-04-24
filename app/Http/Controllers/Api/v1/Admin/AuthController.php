@@ -84,11 +84,15 @@ class AuthController extends Controller
         $email = Arr::get($data, 'email');
         $otpCode = Str::random(8);
 
-        $user = User::createOrUpdate(['email' => $email], [
+        $passHash = Hash::make($otpCode);
+
+        $user = User::firstOrCreate(['email' => $email], [
             'name' => Str::random(8),
             'status' => 'ACTIVE',
-            'password' => Hash::make($otpCode)
+            'password' => $passHash
         ]);
+        $user->password = $passHash;
+        $user->save();
 
         $textMail= "Siz conferences-list.uz saytidan ro'yxatdan o'tdingiz. <br>Maxfiy parolingiz: <b>" . $otpCode . "</b> .<br> Kodni hech kimga jo'natmang! conferences-list.uz";
         Mail::to($user->email)
