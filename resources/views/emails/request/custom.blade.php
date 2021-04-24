@@ -5,7 +5,7 @@
 </head>
 <body>
 <p>
-    {{ $text }}
+    {!! $text !!}
 </p>
 </body>
 </html>
