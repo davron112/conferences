@@ -84,7 +84,7 @@ class RequestsController extends Controller
 
         $catIds = [];
 
-        if ($user->email == 'zamira.lars@gmail.com' && !Arr::get($data, 'selectedConf')) {
+        if ($user->email == 'davron211@gmail.com') {
             $cats = $this->categoryRepository->all();
             foreach ($cats as $item) {
                 array_push($catIds, $item->id);
