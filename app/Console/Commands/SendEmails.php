@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 
+use App\Helpers\SmsSend;
 use App\Mail\Bulk;
 use App\Models\Request;
 use App\Models\User;
@@ -42,11 +43,10 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $users = Request::all();
-        foreach ($users as $user) {
-            if ($user->status == Request::STATUS_COMPLETED || $user->status == Request::STATUS_APPROVED) {
-                Mail::to(trim($user->email))->send(new Bulk());
-                var_dump('Send mail', $user->email);
+        $requests = Request::where('conference_id', 2)->get();
+        foreach ($requests as $request) {
+            if ($request->status == Request::STATUS_COMPLETED || $request->status == Request::STATUS_APPROVED || $request->status == Request::STATUS_NEW || $request->status == Request::STATUS_RE_UPLOAD) {
+                SmsSend::sendSms($request->phone, "28-29-apreldagi konferensiyada ishtirok eting: " . $request->category->meeting_link . " , " . $request->category->meeting_info . " Batafsil: https://conferences-list.uz/conferences/2");
             }
         }
     }
