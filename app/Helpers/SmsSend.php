@@ -9,6 +9,7 @@ namespace App\Helpers;
       * @return bool|string
       */
      public static function sendSms($phone, $text) {
+         $phone = preg_replace('#[^\d]#', '', $phone);
          $data = [
              'recipient_number' => "+". $phone,
              'message' => $text,
