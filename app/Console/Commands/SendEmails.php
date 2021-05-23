@@ -46,8 +46,8 @@ class SendEmails extends Command
     {
         $requests = app(RequestRepository::class)->where('conference_id', 2)->get();
         foreach ($requests as $request) {
-            if ($request->status == Request::STATUS_COMPLETED || $request->status == Request::STATUS_APPROVED || $request->status == Request::STATUS_NEW || $request->status == Request::STATUS_RE_UPLOAD) {
-                SmsSend::sendSms($request->phone, "Bugun 10:00 dan ochiq. Kirish: " . $request->category->meeting_link . " , " . $request->category->meeting_info);
+            if ($request->status == Request::STATUS_COMPLETED || $request->status == Request::STATUS_APPROVED || $request->status == Request::STATUS_RE_UPLOAD) {
+                SmsSend::sendSms($request->phone, "conferences-list.uz - 28-29 apreldagi konferensiya chop etildi: Yuklash: https://bit.ly/3vdfhB9");
                 var_dump($request->id . "SENT" . $request->phone);
             }
         }
